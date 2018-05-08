@@ -1,12 +1,10 @@
 -- Drop database and tables if necessary
 -- DROP DATABASE IF EXISTS travel_db;
 
-
 DROP TABLE IF EXISTS countries CASCADE;
 DROP TABLE IF EXISTS cities CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS comments CASCADE;
-
 
 CREATE TABLE countries (
 id          SERIAL PRIMARY KEY NOT NULL,

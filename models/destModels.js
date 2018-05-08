@@ -58,10 +58,6 @@ function getOneUser(id) {
     WHERE id = $1`, id);
 }
 
-// function () {
-//   return db.many(``)
-// }
-
 function createOneUser(data) {
   return db.one(`
     INSERT INTO users
