@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed; 
+  background-size: cover;
+}
+
+.landing{
+  font-family: quicksand;
+  /* background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed; 
+  background-size: cover; */
+  color: white;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 200px;
+}
+
+.button{
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-family: quicksand;
+}
+
+.logo{
+  font-size: 90px;
+  font-family: brusher;
+}
+
+.login{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 200px;
+  color: white;
+
+}
+
+.footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:60px;
+    width:100%;
+    background:grey;
+}
+
+.nav{
+    position:fixed;
+    left:0px;
+    top:0px;
+    height:60px;
+    width:100%;
+    background:grey;
+    text-decoration: none;
+
+}
+
+form{
+  
+}
