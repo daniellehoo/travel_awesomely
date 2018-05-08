@@ -2,18 +2,26 @@ require('dotenv').config();
 const express    = require('express');
 const logger     = require('morgan');
 const path       = require('path');
+const bodyParser = require('body-parser');
+
 
 // start express
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+//require routes
+const destinationRouter = require('./routes/router');
+
 
 // some logging
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTE HANDLER
-app.use('/api', (req, res) => {
-  res.json({ message: 'hello from API' });
+app.use(logger('dev'));
+
+app.use('/', (req, res) => {
+  res.json({ message: 'hello from /' });
 });
 
 // GLOBAL ERROR HANDLER
