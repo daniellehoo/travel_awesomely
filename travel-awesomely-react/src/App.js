@@ -18,11 +18,11 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/countries/:id' component={Country}/> 
+            <Route exact path='/city' component={City}/>
             <Route exact path='/countries' component={Countries}/>
             <Route exact path='/createaccount' component={CreateAccount}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' component={Landing}/>
-            <Redirect path='/'/>
           </Switch>
         </main>
       </div>

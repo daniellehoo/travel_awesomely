@@ -8,7 +8,8 @@ class City extends Component {
             
             <div className="">
             <Nav />
-            
+            <h1>Milan</h1>
+            {/* render city snippet */}
              <Footer />
             </div>
            
