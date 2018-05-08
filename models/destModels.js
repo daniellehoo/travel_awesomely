@@ -1,14 +1,12 @@
-const pgp = require('pg-promise')();
-const config = require('../config/connection');
-
-const db = pgp(config);
+// const pgp = require('pg-promise')();
+const db = require('../config/connection');
 
 function findAllCountries() {
   return db.many(`
     SELECT * FROM countries`);
 }
 
-function getOneCountry(id) {
+function findCountryById(id) {
   return db.one(`
     SELECT * FROM countries
     WHERE id = $1`, id);
@@ -19,13 +17,13 @@ function findAllCities() {
     SELECT * FROM cities`);
 }
 
-function getOneCity(id) {
+function findCityById(id) {
   return db.one(`
     SELECT * FROM cities
     WHERE id = $1`, id);
 }
 
-function getOneComment(id) {
+function findCommentById(id) {
   return db.one(`
     SELECT * FROM comments
     WHERE city_id = $1`, id);
@@ -39,14 +37,14 @@ function updateOneComment(id, data) {
     RETURNING *`, id, data);
 }
 
-function makeOneComment(data) {
+function saveComment(data) {
   return db.one(`
     INSERT INTO comments
     VALUES ($/comment/, $/city_id
     RETURNING *`, data);
 }
 
-function deleteOneComment(id) {
+function destroyComment(id) {
   return db.none(`
     DELETE FROM comments
     WHERE id = $1`, id);
@@ -66,13 +64,13 @@ function createOneUser(data) {
 
 module.exports = {
   findAllCountries,
-  getOneCountry,
+  findCountryById,
   findAllCities,
-  getOneCity,
-  getOneComment,
+  findCityById,
+  findCommentById,
   updateOneComment,
-  makeOneComment,
-  deleteOneComment,
+  saveComment,
+  destroyComment,
   getOneUser,
   createOneUser,
 };

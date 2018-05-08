@@ -7,22 +7,22 @@ const userController = require('../controllers/userController');
 
 
 // destinationRouter.route('/')
-//   .get(destinationController.getAll);
+//   .get(countryController.indexCountries);
 
-// destinationRouter.route('/countries/:id')
-//     .get(countryController.getOne);
-//
-// destinationRouter.route('/countries')
-//     .get(countryController.getAll);
-//
-// destinationRouter.route('/cities/:id')
-//     .get(cityController.getOne)
-//     .put(cityController.update)
-//     .delete(cityController.destroy);
-//
-// destinationRouter.route('/cities')
-//     .get(cityController.getAll);
-//
+destinationRouter.route('/countries/:id')
+    .get(countryController.getOneCountry);
+
+destinationRouter.route('/countries')
+    .get(countryController.indexCountries);
+
+destinationRouter.route('/cities/:id')
+    .get(cityController.getOneCity);
+    // .put(cityController.update)
+    // .delete(cityController.destroy);
+
+destinationRouter.route('/cities')
+    .get(cityController.indexCities);
+
 destinationRouter.route('/users/:id')
    .get(userController.getOne);
 
