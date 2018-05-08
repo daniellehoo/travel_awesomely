@@ -3,6 +3,12 @@ import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+         // set state object for username and password
+        }
+      }
     render(){
         return(
             <div className="login">
