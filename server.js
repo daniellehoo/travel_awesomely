@@ -7,13 +7,16 @@ const path       = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//require routes
+const destinationRouter = require('./routes/router');
+
 // some logging
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTE HANDLER
 app.use('/', (req, res) => {
-  res.json({ message: 'hello from API' });
+  res.json({ message: 'hello from /' });
 });
 
 // GLOBAL ERROR HANDLER
