@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+
 import {Redirect, Route,Switch} from 'react-router-dom';
 import Nav from './partials/Nav';
 import Footer from './partials/Footer';
