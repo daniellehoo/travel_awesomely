@@ -11,7 +11,6 @@ class Landing extends Component {
                 <h1 className="logo">Travel Awesomely</h1>
                 <h3> an intuitive travel app for the modern traveler</h3>
                 <br />
-                <br />
                 <button className="button"><Link to='/login'>Log In</Link></button>
                 <br />
                 <br />

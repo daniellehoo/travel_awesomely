@@ -5,7 +5,7 @@ const path       = require('path');
 
 // start express
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 //require routes
 const destinationRouter = require('./routes/router');
@@ -15,7 +15,11 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTE HANDLER
-app.use('/', destinationRouter);
+// app.use('/', destinationRouter);
+
+app.get('/api/hello', (req, res) => {
+  res.send({ express: 'Hello From Express' });
+});
 
 app.use('/', (req, res) => {
   res.json({ message: 'hello from /' });
