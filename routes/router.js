@@ -5,7 +5,6 @@ const cityController = require('../controllers/cityController');
 const countryController = require('../controllers/countryController');
 const userController = require('../controllers/userController');
 
-
 // destinationRouter.route('/')
 //   .get(countryController.indexCountries);
 

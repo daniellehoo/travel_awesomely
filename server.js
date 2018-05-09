@@ -17,9 +17,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // ROUTE HANDLER
 app.use('/', destinationRouter);
 
-// app.use('/', (req, res) => {
-//   res.json({ message: 'hello from /' });
-// });
+app.use('/', (req, res) => {
+  res.json({ message: 'hello from /' });
+});
 
 // GLOBAL ERROR HANDLER
 app.use((err, req, res, next) => {
