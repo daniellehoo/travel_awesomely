@@ -2,30 +2,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed; 
+  background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
 .landing{
   font-family: quicksand;
-  /* background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed; 
+  /* background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed;
   background-size: cover; */
   color: white;
   margin: auto;
   width: 50%;
   padding: 10px;
-  margin-top: 200px;
+  margin-top: 5%;
 }
 
 .button{
   border-radius: 8px;
-<<<<<<< HEAD
   padding: 14px 20px;
   font-family: quicksand;
-=======
   font-family: quicksand;
   background-color: blue;
->>>>>>> origin/react
 }
 
 .logo{
@@ -39,11 +36,7 @@ body {
   padding: 10px;
   margin-top: 200px;
   color: white;
-<<<<<<< HEAD
-=======
   text-align: center;
->>>>>>> origin/react
-
 }
 
 .footer{
@@ -51,18 +44,15 @@ body {
     left:0px;
     bottom:0px;
     height:60px;
-<<<<<<< HEAD
     width:100%;
     background:grey;
-=======
-    width:100%; 
+    width:100%;
     font-family: quicksand;
 }
 
 a {
   text-decoration: none;
   color: white;
->>>>>>> origin/react
 }
 
 .nav{
@@ -71,21 +61,16 @@ a {
     top:0px;
     height:60px;
     width:100%;
-<<<<<<< HEAD
     background:grey;
-=======
->>>>>>> origin/react
     text-decoration: none;
 
 }
 
-<<<<<<< HEAD
 form{
-  
+
 }
-=======
 .footer-logo{
-  font-family: brusher; 
+  font-family: brusher;
   font-size: 30px;
 }
 
@@ -93,8 +78,3 @@ form{
   margin-top: 100px;
   font-family: quicksand;
 }
-
-
-
-
->>>>>>> origin/react

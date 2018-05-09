@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-
-class Country extends Component {
-    render(){
-        return(
-            <div className="landing">
-                <h1>Country</h1>
-=======
 import {Link} from 'react-router-dom';
 import City from './City';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 
-
 class Country extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-        // set state for cities
-    
-          }
+  constructor(props){
+    super(props);
+    this.state = {
     }
+  }
 
     componentDidMount() {
         fetch('call to Express?')
@@ -49,15 +38,9 @@ class Country extends Component {
             <div className="country">
             {this.renderCityList()}
             </div>
->>>>>>> origin/react
             </div>
         )
     }
 }
 
-<<<<<<< HEAD
 export default Country;
-=======
-export default Country;
-
->>>>>>> origin/react
