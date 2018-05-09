@@ -1,3 +1,15 @@
+@font-face { 
+  font-family: "brusher"; 
+  src: url(fonts/Brusher.ttf) format('truetype'),    
+}
+
+@font-face { 
+  font-family: "quicksand"; 
+  src: url(fonts/Quicksand-Regular.tff) format('truetype');    
+}
+ 
+
+
 body {
   margin: 0;
   padding: 0;
