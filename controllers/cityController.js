@@ -4,23 +4,31 @@ const secret = require('../server_secret')
 
 module.exports = {
 
-indexCities(req, res, next) {
-  travelDb.findAllCities()
-  .then((data) => {
-    res.locals.cities = data;
-    next();
-  })
-  .catch(next);
-},
+  indexCities(req, res, next) {
+  console.log(indexCities);
+    travelDb.findAllCities()
+    .then((data) => {
+      console.log('this is all: ', data)
+      res.locals.cities = data;
+      console.log(data);
+      next();
+    })
+    .catch(err => {
+        next(err);
+      });
+  },
 
-getOneCity(req, res, next) {
-   travelDb.findCountryById(req.params.id)
-   .then((data) => {
-     res.locals.country = data;
-     next();
-   })
-   .catch(next);
- }
+  getOneCity(req, res, next) {
+    travelDb.findCityById(req.params.id)
+    .then((data) => {
+      console.log('this is all: ', data)
+      res.locals.city = data;
+      next();
+    })
+    .catch(err => {
+        next(err);
+    });
+  }
 
 // async getOne(req, res, next) {
 //   // Get query parameter from req.body from search;
