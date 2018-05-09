@@ -2,9 +2,9 @@ import React from 'react';
 
 function Nav(){
     return(
-<nav className="nav">
-    <div>
-        <div>
+    <nav className="nav">
+    <p><strong className="footer-logo">Travel Awesomely</strong></p>
+        {/* <div>
             <a className="navbar-item" href="">
                 Home
             </a>
@@ -14,11 +14,12 @@ function Nav(){
             <a className="navbar-item" href="">
                 Cities
             </a>
-        </div>
-    </div>
+        </div> */}
+    </nav>
+    
     
         
-</nav>
+
     )
 }
 

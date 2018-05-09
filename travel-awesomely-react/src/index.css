@@ -42,8 +42,12 @@ body {
     left:0px;
     bottom:0px;
     height:60px;
-    width:100%;
-    background:grey;
+    width:100%; 
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .nav{
@@ -52,12 +56,13 @@ body {
     top:0px;
     height:60px;
     width:100%;
-    background:grey;
     text-decoration: none;
 
 }
 
-form{
-  
+.footer-logo{
+  font-family: brusher; 
+  font-size: 30px;
 }
+
 

@@ -8,6 +8,7 @@ class Country extends Component {
         super(props);
         this.state = {
         // set state for cities
+    
           }
     }
 
