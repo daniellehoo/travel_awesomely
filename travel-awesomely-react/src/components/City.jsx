@@ -5,8 +5,7 @@ import Footer from '../partials/Footer';
 class City extends Component {
     render(){
         return(
-            
-            <div className="">
+            <div>
             <Nav />
             <h1>Milan</h1>
             {/* render city snippet */}

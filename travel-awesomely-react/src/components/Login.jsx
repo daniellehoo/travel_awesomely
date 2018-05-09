@@ -15,13 +15,15 @@ class Login extends Component {
             <Nav />
             <form>
                 <label>
-                    Username:
+                    Username
+                    <br/>
             <input type="text" name="name" />
                 </label>
                 <br />
                 <br />
                 <label>
-                    Password:
+                    Password
+                    <br/>
             <input type="password" name="password" />
                 </label>
                 <br /> 

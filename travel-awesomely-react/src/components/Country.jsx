@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import City from './City';
+import Nav from '../partials/Nav';
+import Footer from '../partials/Footer';
 
 
 class Country extends Component {
@@ -34,8 +36,11 @@ class Country extends Component {
     render(){
         const country = this.props.country.id;
         return(
+            <div>
+            <Nav />
             <div className="country">
             {this.renderCityList()}
+            </div>
             </div>
         )
     }

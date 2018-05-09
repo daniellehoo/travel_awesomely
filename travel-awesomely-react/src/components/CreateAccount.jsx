@@ -18,22 +18,26 @@ class CreateAccount extends Component {
         <form>
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
-            <label>Name:
+            <label>Name
+            <br/>
                 <input type="text" name="name" />
             </label>
         <br />
         <br />
-            <label>Username:
+            <label>Username
+            <br/>
                 <input type="text" name="username" />
             </label>
         <br />
         <br />
-            <label>Password:
+            <label>Password
+            <br/>
                 <input type="password" name="password" />
             </label>
         <br />
         <br />
-            <label>Email:
+            <label>Email
+            <br/>
                 <input type="email" name="email" />
             </label>
         <br />

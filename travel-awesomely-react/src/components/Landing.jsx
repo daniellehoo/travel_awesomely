@@ -16,7 +16,9 @@ class Landing extends Component {
                 <br />
                 <br />
                 <button className="button"><Link to='/createaccount'>Create an account</Link></button>
+                <Footer />
                 </div>
+            
             
         )
     }

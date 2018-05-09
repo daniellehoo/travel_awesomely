@@ -19,8 +19,8 @@ body {
 
 .button{
   border-radius: 8px;
-  padding: 14px 20px;
   font-family: quicksand;
+  background-color: blue;
 }
 
 .logo{
@@ -34,6 +34,7 @@ body {
   padding: 10px;
   margin-top: 200px;
   color: white;
+  text-align: center;
 
 }
 
@@ -43,6 +44,7 @@ body {
     bottom:0px;
     height:60px;
     width:100%; 
+    font-family: quicksand;
 }
 
 a {
@@ -64,5 +66,12 @@ a {
   font-family: brusher; 
   font-size: 30px;
 }
+
+form{
+  margin-top: 100px;
+  font-family: quicksand;
+}
+
+
 
 
