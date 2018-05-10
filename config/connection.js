@@ -1,5 +1,7 @@
 // Setting up connection, requiring pg promises and dbConfig
-const pg = require('pg-promise')();
+const pg = require('pg-promise')({
+  query: q => console.log(q.query),
+});
 
 const config = {
   host:     'localhost',

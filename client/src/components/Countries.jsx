@@ -11,6 +11,7 @@ class Countries extends Component {
       countriesListData: [],
       countriesDataReceived: false,
       country: '',
+      theCountryId: '',
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -32,16 +33,42 @@ class Countries extends Component {
       console.log(err))
 }
 
+cities(country_id){
+  fetch(`/countries/${country_id}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data)
+    this.setState({
+      citiesListData: data,
+      citiesListDataReceived: true,
+      city: data.name,
+      id: data.id
+    })
+  })
+  .catch((err) =>
+    console.log(err))
+}
+
+
+
   handleClick(e) {
     console.log('this is props from countries', this.props)
 
   }
   renderCountryList() {
     if (this.state.countriesListDataReceived) {
-      return this.state.countriesListData.map((country) => {
-        return (<div><Country country={country.name} key={country.id} />
-            <Link to={`/countries/${country.id}`}>Click</Link>
-        </div>)
+      return this.state.countriesListData.map((country, i) => {
+        return (
+          <div key={country.id}>
+            <h2>{country.name}</h2>
+            <Link to={{
+              pathname: `/countries/${country.id}`,
+              state: {country_id: country.id}
+            }} onClick={()=>this.props.grabId(country.id)}>Click</Link>
+          </div>
+        )
+        // return (<div><Country country={country.name} key={country.id} />
+        //     <Link to={`/countries/${country.id}`}>Click</Link>
       });
     }
   }

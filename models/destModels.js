@@ -12,6 +12,17 @@ function findCountryById(id) {
     WHERE id = $1`, id);
 }
 
+function findCountryandCitiesByCountryId(id) {
+  console.log('inside the model')
+  return db.any(`
+    SELECT *
+    FROM countries
+    JOIN cities
+    ON countries.id = cities.country_id
+    WHERE countries.id = $1
+    `, id)
+}
+
 function findAllCities() {
   return db.many(`
     SELECT * FROM cities`);
@@ -21,6 +32,12 @@ function findCityById(id) {
   return db.one(`
     SELECT * FROM cities
     WHERE id = $1`, id);
+}
+
+function findCityByCountryId(country_id) {
+  return db.many(`
+    SELECT * FROM cities
+    WHERE country_id = $1`, country_id)
 }
 
 function findCommentById(id) {
@@ -64,6 +81,7 @@ function createOneUser(data) {
 
 module.exports = {
   findAllCountries,
+  findCountryandCitiesByCountryId,
   findCountryById,
   findAllCities,
   findCityById,

@@ -16,49 +16,35 @@ class Country extends Component {
 
   }
 
-    componentWillMount() {
-        // fetch(`/countries/${this.props.id}`)
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     this.setState({
-        //       country: data.country
-        //   })
-        // })
-        // .catch((err) =>
-        //   console.log(err))
+    componentWillMount(){
+      fetch(`/countries/${this.props.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('this is what were after', data)
+        this.setState({
+          citiesListData: data,
+          citiesListDataReceived: true,
+          city: data.name,
+          id: data.id
+        })
+      })
+      .catch((err) =>
+        console.log(err))
     }
-
-
-    renderCityList() {
-      if (this.state.citiesList)
-          return this.state.cityList.map((city) => {
-            return <City city={city} key={city.id} />
-          });
-      }
-
-      renderCountryList() {
-        if (this.state.countriesListDataReceived) {
-          return this.state.countriesListData.map((country) => {
-            return (<div><Country country={country.name} key={country.id} />
-                <Link to={`/countries/${country.id}`}>See More</Link>
-                <CityList />
-            </div>)
-          });
-        }
-      }
 
 
     handleClick() {
       console.log('this is props', this.props)
     }
 
-    render(){
+    render(props){
+      console.log('thisiscountry', this.props.thestate)
         return(
             <div>
             <Nav />
             <div className="country">
               <h1>{this.props.country}</h1>
-            <CityList />
+            <CityList thestate={this.props.thestate}/>
             </div>
             <Footer />
             </div>
