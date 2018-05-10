@@ -1,11 +1,11 @@
 @font-face { 
   font-family: "brusher"; 
-  src: url(fonts/Brusher.ttf) format('truetype'),    
+  src: url(fonts/Brusher.ttf);    
 }
 
 @font-face { 
   font-family: "quicksand"; 
-  src: url(fonts/Quicksand-Regular.ttf) format('truetype');    
+  src: url(fonts/Quicksand-Regular.ttf);    
 }
  
 
@@ -31,7 +31,6 @@ body {
 
 .button{
   border-radius: 8px;
-  padding: 14px 20px;
   font-family: quicksand;
   font-family: quicksand;
   background-color: blue;
@@ -57,7 +56,6 @@ body {
     bottom:0px;
     height:60px;
     width:100%;
-    background:grey;
     width:100%;
     font-family: quicksand;
 }
@@ -78,9 +76,6 @@ a {
 
 }
 
-form{
-
-}
 .footer-logo{
   font-family: brusher;
   font-size: 30px;
@@ -88,5 +83,4 @@ form{
 
 form{
   margin-top: 100px;
-  font-family: quicksand;
 }
