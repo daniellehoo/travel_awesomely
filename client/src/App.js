@@ -21,9 +21,19 @@ class App extends Component {
       response: '',
       country: '',
       id: 0,
+      d: 1
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.grabId = this.grabId.bind(this);
+}
+
+
+
+grabId(id) {
+    this.setState({
+      d: id
+    })
 }
 
 
@@ -53,20 +63,22 @@ class App extends Component {
     }
 
   render() {
+    console.log('inApp', this.state.d)
     return (
       <div className="App">
         <p className="App-intro">{this.state.response}</p>
         <main>
           <Switch>
             <Route
-              render={() => (<Country handleClick={(e) => this.handleClick(e)}/>)}
-              exact path='/countries/:id'
-            />
+              render={() => (<Country
+                thestate={this.state.d}
+                handleClick={(e) => this.handleClick(e)}/>)}
+                exact path='/countries/:id'
+              />
             <Route exact path='/city' component={City}
           />
             <Route
-              render={() => (<Countries  handleClick={(e) => this.handleClick(e)}/>)}
-
+              render={() => (<Countries grabId={this.grabId} handleClick={(e) => this.handleClick(e)}/>)}
               exact path='/countries'
           />
             <Route exact path='/createaccount' component={CreateAccount}/>

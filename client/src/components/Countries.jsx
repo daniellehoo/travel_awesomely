@@ -11,6 +11,7 @@ class Countries extends Component {
       countriesListData: [],
       countriesDataReceived: false,
       country: '',
+      theCountryId: '',
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -48,6 +49,8 @@ cities(country_id){
     console.log(err))
 }
 
+
+
   handleClick(e) {
     console.log('this is props from countries', this.props)
 
@@ -61,7 +64,7 @@ cities(country_id){
             <Link to={{
               pathname: `/countries/${country.id}`,
               state: {country_id: country.id}
-            }}>Click</Link>
+            }} onClick={()=>this.props.grabId(country.id)}>Click</Link>
           </div>
         )
         // return (<div><Country country={country.name} key={country.id} />

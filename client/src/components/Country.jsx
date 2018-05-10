@@ -37,13 +37,14 @@ class Country extends Component {
       console.log('this is props', this.props)
     }
 
-    render(){
+    render(props){
+      console.log('thisiscountry', this.props.thestate)
         return(
             <div>
             <Nav />
             <div className="country">
               <h1>{this.props.country}</h1>
-            <CityList />
+            <CityList thestate={this.props.thestate}/>
             </div>
             <Footer />
             </div>

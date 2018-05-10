@@ -16,17 +16,15 @@ class CityList extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  componentWillMount(){
-    console.log('state is this', props.location.state)
-    fetch('/countries/1')
+  componentWillMount() {
+    console.log('state is this', this.props.thestate)
+    fetch(`/countries/${this.props.thestate}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log('this is', data)
+      console.log('this isdatttttaaaaaa', data)
       this.setState({
         citiesListData: data,
-        citiesListDataReceived: true,
-        city: data.name,
-        id: data.id
+        citiesListDataReceived: true
       })
     })
     .catch((err) =>
@@ -40,7 +38,7 @@ handleClick(e) {
 renderCityList() {
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
-      return (<div><City city={city.name} key={city.id} />
+      return (<div><City city={city.city_name} key={city.id} />
         <Link to={`/cities/${city.id}`}>Click</Link>
           {/* <Link to={
             `/cities/${city.id}`}>Click
@@ -49,7 +47,8 @@ renderCityList() {
     });
   }
 }
-render(){
+render(props){
+  console.log('thisistssts', this.props.thestate)
     return(
         <div className="landing">
         <Nav />
