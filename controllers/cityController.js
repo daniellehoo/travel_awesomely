@@ -18,6 +18,17 @@ module.exports = {
       });
   },
 
+  getCityByCountryId(req, res, next) {
+    travelDb.findCityByCountryId(req.params.id)
+    .then((data) => {
+      console.log('this is getCityByCountryId', data)
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+  },
+
   getOneCity(req, res, next) {
     travelDb.findCityById(req.params.id)
     .then((data) => {

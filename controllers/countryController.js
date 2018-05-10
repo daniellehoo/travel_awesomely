@@ -14,7 +14,7 @@ function indexCountries(req, res, next) {
 }
 
 function getOneCountry(req, res, next) {
-  travelDb.findCountryById(req.params.id)
+  travelDb.findCountryandCitiesByCountryId(req.params.id)
   .then((data) => {
     // res.locals.country = data;
     // next();

@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Country from './components/Country';
 import Countries from './components/Countries';
 import CreateAccount from './components/CreateAccount';
+import CityList from './components/CityList';
 
 
 class App extends Component {
@@ -61,7 +62,8 @@ class App extends Component {
               render={() => (<Country handleClick={(e) => this.handleClick(e)}/>)}
               exact path='/countries/:id'
             />
-            <Route exact path='/city' component={City}/>
+            <Route exact path='/city' component={City}
+          />
             <Route
               render={() => (<Countries  handleClick={(e) => this.handleClick(e)}/>)}
 

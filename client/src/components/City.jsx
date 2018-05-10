@@ -4,18 +4,29 @@ import Footer from '../partials/Footer';
 import Commentform from './Commentform';
 
 class City extends Component {
-    render(){
-        return(
-            <div>
-            <Nav />
-            {/* <h1>Milan</h1> */}
-            {/* render city snippet */}
-            <Commentform />
-             <Footer />
-            </div>
+  constructor(props){
+    super(props);
+    this.state = {
+      city: '',
+      id: ''
+    };
+  }
 
-        )
-    }
+  handleClick() {
+    console.log('this is props', this.props)
+  }
+
+  render(){
+      return(
+          <div>
+          <Nav />
+          <div className="city">
+            <h1>{this.props.city}</h1>
+          </div>
+          <Footer />
+          </div>
+      )
+  }
 }
 
 export default City;
