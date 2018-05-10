@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-
-import {Redirect, Route,Switch} from 'react-router-dom';
-import Nav from './partials/Nav';
-import Footer from './partials/Footer';
+import {Route, Switch} from 'react-router-dom';
+// import Nav from './partials/Nav';
+// import Footer from './partials/Footer';
 import Landing from './components/Landing';
 import City from './components/City';
 import Login from './components/Login';
@@ -19,19 +18,19 @@ class App extends Component {
     };
 
     componentDidMount() {
-      this.callApi()
-        .then(res => this.setState({ response: res.express }))
-        .catch(err => console.log(err));
+      // this.callApi()
+      //   .then(res => this.setState({ response: res.express }))
+      //   .catch(err => console.log(err));
     }
 
-    callApi = async () => {
-      const response = await fetch('/api/hello');
-      const body = await response.json();
-
-      if (response.status !== 200) throw Error(body.message);
-
-      return body;
-    };
+    // callApi = async () => {
+    //   const response = await fetch('/');
+    //   const body = await response.json();
+    //
+    //   if (response.status !== 200) throw Error(body.message);
+    //
+    //   return body;
+    // };
 
   render() {
     return (
@@ -45,7 +44,7 @@ class App extends Component {
             <Route exact path='/createaccount' component={CreateAccount}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' component={Landing}/>
-            <Redirect path='/'/>
+            {/* <Redirect path='/'/> */}
           </Switch>
         </main>
       </div>

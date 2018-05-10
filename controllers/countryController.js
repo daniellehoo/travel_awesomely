@@ -1,12 +1,12 @@
 const travelDb = require ('../models/destModels');
 
 function indexCountries(req, res, next) {
-console.log('indexCountries');
   travelDb.findAllCountries()
     .then((data) => {
-      console.log('this is all: ', data)
-      res.locals.countries = data;
-      next();
+      console.log('this is data from Controller: ', data)
+      // res.locals.countries = data;
+      // next();
+      res.json(data)
     })
     .catch( err => {
       next(err)
@@ -16,10 +16,13 @@ console.log('indexCountries');
 function getOneCountry(req, res, next) {
   travelDb.findCountryById(req.params.id)
   .then((data) => {
-    res.locals.country = data;
-    next();
+    // res.locals.country = data;
+    // next();
+    res.json(data)
   })
-  .catch(next);
+  .catch( err => {
+    next(err)
+  });
 }
 
 module.exports = {

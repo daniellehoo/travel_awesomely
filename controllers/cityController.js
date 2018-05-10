@@ -5,13 +5,13 @@ const secret = require('../server_secret')
 module.exports = {
 
   indexCities(req, res, next) {
-  console.log(indexCities);
     travelDb.findAllCities()
     .then((data) => {
       console.log('this is all: ', data)
-      res.locals.cities = data;
-      console.log(data);
-      next();
+      // res.locals.cities = data;
+      // console.log(data);
+      res.json(data);
+      // next();
     })
     .catch(err => {
         next(err);

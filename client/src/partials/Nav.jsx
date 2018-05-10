@@ -8,17 +8,14 @@ function Nav(){
     <nav className="nav">
     <p><strong className="footer-logo">Travel Awesomely</strong></p>
         <div>
-            <a className="navbar-item"><Link to='/'>
+            <Link className="navbar-item" to='/'>
                 Home</Link>
-            </a>
             <br/>
-            <a className="navbar-item"><Link to='/countries'>
+          <Link to='/countries'>
                 Countries</Link>
-            </a>
             <br/>
-            <a className="navbar-item"><Link to='/cities'>
+          <Link to='/cities'>
                 Cities</Link>
-            </a>
         </div>
     </nav>
 

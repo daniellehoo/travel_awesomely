@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import City from './City';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
@@ -8,19 +8,21 @@ class Country extends Component {
   constructor(props){
     super(props);
     this.state = {
+      country: ''
     }
   }
 
     componentDidMount() {
-        fetch('call to Express?')
-          .then((res) => {
-            return res.json();
-          }).then((jsonRes) => {
+        fetch(`/countries/${this.props.match.params.id}`)
+          .then((res) => res.json())
+          .then((data) => {
             this.setState({
-            //  City state
-            })
+              country: data.country
           })
-      }
+        })
+        .catch((err) =>
+          console.log(err))
+    }
 
 
     renderCityList() {
@@ -31,13 +33,14 @@ class Country extends Component {
 
 
     render(){
-        const country = this.props.country.id;
         return(
             <div>
             <Nav />
             <div className="country">
-            {this.renderCityList()}
+              <h1>Cities</h1>
+            {/* {this.renderCityList()} */}
             </div>
+            <Footer />
             </div>
         )
     }
