@@ -3,7 +3,7 @@ const travelDb = require ('../models/destModels');
 function indexCountries(req, res, next) {
   travelDb.findAllCountries()
     .then((data) => {
-      console.log('this is data from Controller: ', data)
+      console.log('$$$this is data from Controller: ', data)
       // res.locals.countries = data;
       // next();
       res.json(data)
@@ -18,6 +18,8 @@ function getOneCountry(req, res, next) {
   .then((data) => {
     // res.locals.country = data;
     // next();
+    console.log('this is for sure fucking firing')
+    console.log('data from controller:' + data)
     res.json(data)
   })
   .catch( err => {

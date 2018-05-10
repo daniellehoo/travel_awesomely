@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 // import Nav from './partials/Nav';
 // import Footer from './partials/Footer';
 import Landing from './components/Landing';
@@ -13,9 +13,18 @@ import CreateAccount from './components/CreateAccount';
 
 
 class App extends Component {
-  state = {
-      response: ''
+  constructor(props) {
+    super(props)
+
+  this.state = {
+      response: '',
+      country: '',
+      id: 0,
     };
+
+    this.handleClick = this.handleClick.bind(this);
+}
+
 
     componentDidMount() {
       // this.callApi()
@@ -32,15 +41,32 @@ class App extends Component {
     //   return body;
     // };
 
+    handleClick(e) {
+      e.preventDefault();
+      console.log('hitting handleClick')
+      //this.props.onClick(this.state.country);
+      this.setState({
+        country: this.props.country,
+        id: this.props.id,
+      })
+    }
+
   render() {
     return (
       <div className="App">
         <p className="App-intro">{this.state.response}</p>
         <main>
           <Switch>
-            <Route exact path='/countries/:id' component={Country}/>
+            <Route
+              render={() => (<Country handleClick={(e) => this.handleClick(e)}/>)}
+              exact path='/countries/:id'
+            />
             <Route exact path='/city' component={City}/>
-            <Route exact path='/countries' component={Countries}/>
+            <Route
+              render={() => (<Countries  handleClick={(e) => this.handleClick(e)}/>)}
+
+              exact path='/countries'
+          />
             <Route exact path='/createaccount' component={CreateAccount}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' component={Landing}/>
