@@ -3,6 +3,7 @@ import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 import Country from './Country';
 import { Link } from 'react-router-dom';
+import City from './City';
 
 class CityList extends Component {
   constructor(props){
@@ -20,7 +21,6 @@ class CityList extends Component {
     .then((res) => res.json())
     .then((data) => {
       console.log(data)
-      // console.log('this is data from componentDidMount' + data)
       this.setState({
         citiesListData: data,
         citiesListDataReceived: true,
@@ -40,7 +40,7 @@ renderCityList() {
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
       return (<div><City city={city.name} key={city.id} />
-          <Link to=`/cities/${city.id}`>Click</Link>
+          <Link to={`/cities/${city.id}`}> Click </Link>
       </div>)
     });
   }

@@ -40,7 +40,7 @@ class Countries extends Component {
     if (this.state.countriesListDataReceived) {
       return this.state.countriesListData.map((country) => {
         return (<div><Country country={country.name} key={country.id} />
-            <Link to=`/countries/${country.id}`>Click</Link>
+            <Link to={`/countries/${country.id}`}>Click</Link>
         </div>)
       });
     }
