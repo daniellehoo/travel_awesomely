@@ -6,7 +6,6 @@ class CommentForm extends Component {
     constructor(props){
         super(props)
         this.state = {
-            name: '',
             comment: '',
             city_id: 0,
         }

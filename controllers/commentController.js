@@ -22,6 +22,7 @@ function makeOneComment(req, res, next) {
   travelDb.saveComment(req.body)
   .then((data) => {
     // res.locals.comment = data;
+    res.json(data)
   })
   .catch(next);
 }
