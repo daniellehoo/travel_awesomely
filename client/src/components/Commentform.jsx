@@ -15,6 +15,7 @@ class CommentForm extends Component {
     getComments(){
         //return all the comments
         console.log('I am returning all the commments')
+        //still need to build out the fetch for all the comments
     }
 
     handleChange(e) {
@@ -23,10 +24,6 @@ class CommentForm extends Component {
       }
 
     handleSubmit(e, city_id){
-        // console.log(e.target.value)
-    //    console.log('A comment was added:' + this.state.comment + 'to city id:' + this.state.city_id)
-    //    console.log(city_id)
-    console.log('this is', e)
     fetch(`/cities/${this.state.city_id}`, {
             method: 'POST' ,
             headers: ({"content-type": "application/json"}),
@@ -35,7 +32,6 @@ class CommentForm extends Component {
                 "city_id": this.state.city_id
             })
       })
-      
       .then(() => {this.getComments()})
         e.preventDefault();
        }

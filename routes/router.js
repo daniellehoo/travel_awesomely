@@ -16,9 +16,10 @@ destinationRouter.route('/countries')
     .get(countryController.indexCountries)
 
 destinationRouter.route('/cities/:id')
-    .get(cityController.getOneCity)
+    // .get(cityController.getOneCity)
+    .get(commentController.getOneComment)
     .post(commentController.makeOneComment)
-    
+    .delete(commentController.deleteComment)
 
 destinationRouter.route('/cities')
     .get(cityController.indexCities)
