@@ -21,7 +21,6 @@ class Countries extends Component {
     .then((res) => res.json())
     .then((data) => {
       console.log(data)
-      // console.log('this is data from componentDidMount' + data)
       this.setState({
         countriesListData: data,
         countriesListDataReceived: true,
@@ -49,8 +48,6 @@ cities(country_id){
     console.log(err))
 }
 
-
-
   handleClick(e) {
     console.log('this is props from countries', this.props)
 
@@ -60,11 +57,10 @@ cities(country_id){
       return this.state.countriesListData.map((country, i) => {
         return (
           <div key={country.id}>
-            <h2>{country.name}</h2>
             <Link to={{
               pathname: `/countries/${country.id}`,
               state: {country_id: country.id}
-            }} onClick={()=>this.props.grabId(country.id)}>Click</Link>
+            }} onClick={()=>this.props.grabId(country.id)}>{country.name}</Link>
           </div>
         )
         // return (<div><Country country={country.name} key={country.id} />

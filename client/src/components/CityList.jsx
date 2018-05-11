@@ -39,10 +39,7 @@ renderCityList() {
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
       return (<div><City city={city.city_name} key={city.id} />
-        <Link to={`/cities/${city.id}`}>Click</Link>
-          {/* <Link to={
-            `/cities/${city.id}`}>Click
-          </Link> */}
+        <Link to={`/cities/${city.id}`}>{city.city_name}</Link>
       </div>)
     });
   }
@@ -51,10 +48,8 @@ render(props){
   console.log('thisistssts', this.props.thestate)
     return(
         <div className="landing">
-        <Nav />
             <h1>Cities</h1>
               {this.renderCityList()}
-        <Footer />
         </div>
     )
 }

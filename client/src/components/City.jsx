@@ -19,12 +19,7 @@ class City extends Component {
   render(){
     console.log('this is the props', this.props)
       return(
-          <div>
-          <Nav />
           <div className="city">
-            <h1>{this.props.city}</h1>
-          </div>
-          <Footer />
           </div>
       )
   }

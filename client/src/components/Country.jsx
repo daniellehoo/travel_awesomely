@@ -13,7 +13,6 @@ class Country extends Component {
       country: '',
       id: ''
     };
-
   }
 
     componentWillMount(){
@@ -32,7 +31,6 @@ class Country extends Component {
         console.log(err))
     }
 
-
     handleClick() {
       console.log('this is props', this.props)
     }
@@ -43,7 +41,6 @@ class Country extends Component {
             <div>
             <Nav />
             <div className="country">
-              <h1>{this.props.country}</h1>
             <CityList thestate={this.props.thestate}/>
             </div>
             <Footer />

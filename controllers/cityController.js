@@ -41,10 +41,10 @@ module.exports = {
     });
   }
 
-// async getOne(req, res, next) {
-//   // Get query parameter from req.body from search;
-//   // make fetch call to Triposo API with dynamic variable
-//   travelDb.getOneCity(req.params.id)
+//   async getOneCity(req, res, next) {
+// // Get query parameter from req.body from search;
+// // make fetch call to Triposo API with dynamic variable
+//    travelDb.findCityById(req.params.id)
 //     .then(async function (city) {
 //       res.locals.city = city;
 //       let str = city.name;
