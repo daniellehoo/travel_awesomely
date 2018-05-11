@@ -22,19 +22,17 @@ class CommentForm extends Component {
       }
 
     handleSubmit(e, id){
-        console.log('A comment was added:' + this.state.comment)
-        console.log(id)
+       console.log('A comment was added:' + this.state.comment)
+       console.log(id)
     fetch(`/cities/${id}`, {
-         method: 'POST' 
-       })
-       .then(() => {this.getComments()})
-         e.preventDefault();
-        }
+        method: 'POST' 
+      })
+      .then(() => {this.getComments()})
+        e.preventDefault();
+       }
 
-     
     render(){
         return(
-
             <form onSubmit={this.handleSubmit}>
             <label>
             Comment
@@ -42,10 +40,8 @@ class CommentForm extends Component {
             <input type="text" value={this.state.comment} onChange={this.handleChange} />
             </label>
             <br/>
-
-            <input className="" type="submit" value="Add Comment"/>
-        </form>
-           
+            <input type="submit" value="submit" />
+            </form>
         )
     }
 }

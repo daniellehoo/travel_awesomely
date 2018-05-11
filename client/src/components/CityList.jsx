@@ -35,6 +35,7 @@ handleClick(e) {
   console.log('this is props from cities', this.props)
 
 }
+<<<<<<< Updated upstream
 renderCityList() {
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
@@ -45,6 +46,23 @@ renderCityList() {
   }
 }
 render(props){
+=======
+// renderCityList() {
+//   if (this.state.citiesListDataReceived) {
+//     return this.state.citiesListData.map((city) => {
+//       return (<div><City city={city.city_name} key={city.id} />
+//         <Link to={`/cities/${city.id}`}>Click</Link>
+//           {/* <Link to={
+//             `/cities/${city.id}`}>Click
+//           </Link> */}
+//       return (<div><City city={city.name} key={city.id} />
+//           <Link to={`/cities/${city.id}`}>Click</Link>
+//       </div>)
+//     });
+//   }
+// }
+/* render(props){
+>>>>>>> Stashed changes
   console.log('thisistssts', this.props.thestate)
     return(
         <div className="landing">
@@ -52,7 +70,7 @@ render(props){
               {this.renderCityList()}
         </div>
     )
-}
-}
+} */}
+// }
 
 export default CityList;

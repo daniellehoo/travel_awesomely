@@ -11,6 +11,18 @@ class City extends Component {
       id: ''
     };
   }
+<<<<<<< Updated upstream
+=======
+    // render(){
+    //     return(
+    //         <div>
+    //         <Nav />
+    //         {/* <h1>Milan</h1> */}
+    //         {/* render city snippet */}
+    //         {/* <Commentform /> */}
+    //          <Footer />
+    //         </div>
+>>>>>>> Stashed changes
 
   handleClick() {
     console.log('this is props', this.props)
