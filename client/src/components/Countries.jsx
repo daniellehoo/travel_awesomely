@@ -52,7 +52,6 @@ cities(country_id){
     console.log('this is props from countries', this.props)
 
   }
-<<<<<<< Updated upstream
   renderCountryList() {
     if (this.state.countriesListDataReceived) {
       return this.state.countriesListData.map((country, i) => {
@@ -69,29 +68,6 @@ cities(country_id){
       });
     }
   }
-=======
-  // renderCountryList() {
-  //   if (this.state.countriesListDataReceived) {
-  //     return this.state.countriesListData.map((country, i) => {
-  //       return (
-  //         <div key={country.id}>
-  //           <h2>{country.name}</h2>
-  //           <Link to={{
-  //             pathname: `/countries/${country.id}`,
-  //             state: {country_id: country.id}
-  //           }} onClick={()=>this.props.grabId(country.id)}>Click</Link>
-  //         </div>
-  //       )
-  //       // return (<div><Country country={country.name} key={country.id} />
-  //       //     <Link to={`/countries/${country.id}`}>Click</Link>
-  //     return this.state.countriesListData.map((country) => {
-  //       return (<div><Country country={country.name} key={country.id} />
-  //           <Link to={`/countries/${country.id}`}>Click</Link>
-  //       </div>)
-  //     });
-  //   }
-  // }
->>>>>>> Stashed changes
 
     // render(){
     //     return(

@@ -11,8 +11,6 @@ class City extends Component {
       id: ''
     };
   }
-<<<<<<< Updated upstream
-=======
     // render(){
     //     return(
     //         <div>
@@ -22,7 +20,6 @@ class City extends Component {
     //         {/* <Commentform /> */}
     //          <Footer />
     //         </div>
->>>>>>> Stashed changes
 
   handleClick() {
     console.log('this is props', this.props)
