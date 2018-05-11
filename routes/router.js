@@ -8,16 +8,19 @@ const userController = require('../controllers/userController');
 // destinationRouter.route('/')
 //   .get(countryController.indexCountries);
 
+destinationRouter.route('/countries/:id/superhacky')
+    .get(countryController.superHacky)
+
+destinationRouter.route('/cities/:id')
+    .get(cityController.getOneCity);
+      // .put(cityController.update)
+      // .delete(cityController.destroy);
+
 destinationRouter.route('/countries/:id')
     .get(countryController.getOneCountry);
 
 destinationRouter.route('/countries')
     .get(countryController.indexCountries);
-
-destinationRouter.route('/cities/:id')
-    .get(cityController.getOneCity);
-    // .put(cityController.update)
-    // .delete(cityController.destroy);
 
 destinationRouter.route('/cities')
     .get(cityController.indexCities);

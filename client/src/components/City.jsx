@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Nav from '../partials/Nav';
-import Footer from '../partials/Footer';
 import Commentform from './Commentform';
 
 class City extends Component {
@@ -8,18 +6,40 @@ class City extends Component {
     super(props);
     this.state = {
       city: '',
-      id: ''
-    };
+      id: '',
+    }
   }
+
+componentWillMount(){
+  console.log('city state props', this.props.thestate)
+  fetch(`/cities/${this.props.thestate}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log('data from city componentWillMount', data)
+    console.log('danielle wants this', data.results[0].snippet)
+    this.setState({
+      cityData: data,
+      cityDataReceived: true,
+      city: data.name,
+      id: data.id,
+      snippet: data.results[0].snippet
+    })
+  })
+  .catch((err) =>
+    console.log(err))
+}
 
   handleClick() {
     console.log('this is props', this.props)
   }
 
   render(){
-    console.log('this is the props', this.props)
+    console.log('statecity', this.state.city)
+    console.log('statesnippet', this.state.snippet)
       return(
           <div className="city">
+            <h1>this.state.city{this.state.city}</h1>
+            <h2>this.state.snippet{this.state.snippet}</h2>
           </div>
       )
   }

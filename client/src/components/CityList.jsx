@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../partials/Nav';
-import Footer from '../partials/Footer';
-import Country from './Country';
 import { Link } from 'react-router-dom';
-import City from './City';
 
 class CityList extends Component {
   constructor(props){
@@ -31,6 +27,22 @@ class CityList extends Component {
       console.log(err))
   }
 
+  city(city_id){
+    fetch(`/cities/${city_id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+      this.setState({
+        citiesListData: data,
+        citiesListDataReceived: true,
+        city: data.name,
+        id: data.id
+      })
+    })
+    .catch((err) =>
+      console.log(err))
+  }
+
 handleClick(e) {
   console.log('this is props from cities', this.props)
 
@@ -38,14 +50,19 @@ handleClick(e) {
 renderCityList() {
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
-      return (<div><City city={city.city_name} key={city.id} />
-        <Link to={`/cities/${city.id}`}>{city.city_name}</Link>
+      return (
+        <div key={city.id}>
+        <Link to={{
+          pathname: `/cities/${city.id}`,
+          state: {city_id: city.id}
+        }} onClick={()=>this.props.grabId(city.id)}>{city.city_name}
+        </Link>
       </div>)
     });
   }
 }
+
 render(props){
-  console.log('thisistssts', this.props.thestate)
     return(
         <div className="landing">
             <h1>Cities</h1>

@@ -57,7 +57,7 @@ function updateOneComment(id, data) {
 function saveComment(data) {
   return db.one(`
     INSERT INTO comments
-    VALUES ($/comment/, $/city_id
+    VALUES ($/comment/, $/city_id/
     RETURNING *`, data);
 }
 

@@ -3,9 +3,7 @@ const travelDb = require ('../models/destModels');
 function indexCountries(req, res, next) {
   travelDb.findAllCountries()
     .then((data) => {
-      console.log('$$$this is data from Controller: ', data)
-      // res.locals.countries = data;
-      // next();
+      console.log('$$$this is data from indexCountries Controller: ', data)
       res.json(data)
     })
     .catch( err => {
@@ -14,13 +12,10 @@ function indexCountries(req, res, next) {
 }
 
 function getOneCountry(req, res, next) {
-  console.log('we are here', req.params.id)
+  console.log('getOneCountryController', req.params.id)
   travelDb.findCountryandCitiesByCountryId(req.params.id)
   .then((data) => {
-    // res.locals.country = data;
-    // next();
-    console.log('this is for sure fucking firing')
-    console.log('data from controller:' + data)
+    console.log('data from country controller:', data)
     res.json(data)
   })
   .catch( err => {
@@ -28,7 +23,13 @@ function getOneCountry(req, res, next) {
   });
 }
 
+function superHacky(req, res) {
+  let theID = req.params.id;
+  res.json({ countryId: theID})
+}
+
 module.exports = {
   indexCountries,
   getOneCountry,
+  superHacky
 };

@@ -50,8 +50,8 @@ cities(country_id){
 
   handleClick(e) {
     console.log('this is props from countries', this.props)
-
   }
+
   renderCountryList() {
     if (this.state.countriesListDataReceived) {
       return this.state.countriesListData.map((country, i) => {
@@ -63,8 +63,6 @@ cities(country_id){
             }} onClick={()=>this.props.grabId(country.id)}>{country.name}</Link>
           </div>
         )
-        // return (<div><Country country={country.name} key={country.id} />
-        //     <Link to={`/countries/${country.id}`}>Click</Link>
       });
     }
   }
