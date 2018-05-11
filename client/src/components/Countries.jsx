@@ -69,17 +69,17 @@ cities(country_id){
     }
   }
 
-    render(){
-        return(
-            <div className="landing">
-            <Nav />
-                <h1>Countries</h1>
-                <h3>Hi {this.props.username}, choose a country</h3>
-                  {this.renderCountryList()}
-            <Footer />
-            </div>
-        )
-    }
+    // render(){
+    //     return(
+    //         <div className="landing">
+    //         <Nav />
+    //             <h1>Countries</h1>
+    //             <h3>Hi {this.props.username}, choose a country</h3>
+    //               {this.renderCountryList()}
+    //         <Footer />
+    //         </div>
+    //     )
+    // }
 }
 
 export default Countries;
