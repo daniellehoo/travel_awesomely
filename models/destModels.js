@@ -55,10 +55,13 @@ function updateOneComment(id, data) {
 }
 
 function saveComment(data) {
+  console.log('I am data from the model', data)
   return db.one(`
-    INSERT INTO comments
-    VALUES ($/comment/, $/city_id
-    RETURNING *`, data);
+  INSERT INTO comments 
+  (comment, city_id)
+  VALUES 
+  ($/comment/, $/city_id/)
+  RETURNING *`, data);
 }
 
 function destroyComment(id) {

@@ -19,10 +19,12 @@ function updateOneComment(req, res, next) {
 }
 
 function makeOneComment(req, res, next) {
+  console.log('make comment controlller!!', req.body)
   travelDb.saveComment(req.body)
-  .then((data) => {
-    // res.locals.comment = data;
-    res.json(data)
+  .then((data) => { 
+    console.log('I am data:', data)   
+  res.json(data);
+    
   })
   .catch(next);
 }

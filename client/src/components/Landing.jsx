@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 import {Link} from 'react-router-dom';
+import CommentForm from './Commentform';
 
 class Landing extends Component {
     render(){
@@ -15,6 +16,8 @@ class Landing extends Component {
                 <br />
                 <br />
                 <button className="button"><Link to='/createaccount'>Create an account</Link></button>
+                <br/>
+                <CommentForm />
                 <Footer />
                 </div>
             )
