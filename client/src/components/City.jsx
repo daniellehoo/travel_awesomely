@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
-import Commentform from './Commentform';
+// import Commentform from './Commentform';
 
 class City extends Component {
   constructor(props){

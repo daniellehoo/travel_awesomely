@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
-import Country from './Country';
+// import Country from './Country';
 import { Link } from 'react-router-dom';
 import City from './City';
 

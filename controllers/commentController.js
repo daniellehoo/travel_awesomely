@@ -3,8 +3,8 @@ const travelDb = require ('../models/destModels');
 function getOneComment(req, res, next) {
   travelDb.findCommentById(req.params.id)
   .then((data) => {
-    res.locals.comment = data;
-    next();
+    // res.locals.comment = data;
+    // next();
   })
   .catch(next);
 }
@@ -12,8 +12,8 @@ function getOneComment(req, res, next) {
 function updateOneComment(req, res, next) {
   travelDb.updateOneComment(req.body)
   .then((data) => {
-    res.locals.comment = data;
-    next();
+    // res.locals.comment = data;
+    // next();
   })
   .catch(next);
 }
@@ -21,7 +21,7 @@ function updateOneComment(req, res, next) {
 function makeOneComment(req, res, next) {
   travelDb.saveComment(req.body)
   .then((data) => {
-    res.locals.comment = data;
+    // res.locals.comment = data;
   })
   .catch(next);
 }
@@ -29,7 +29,7 @@ function makeOneComment(req, res, next) {
 function deleteComment(req, res, next) {
   travelDb.destroyComment(req.params.id)
   .then(() => {
-    next();
+    // next();
   })
   .catch(next);
 }

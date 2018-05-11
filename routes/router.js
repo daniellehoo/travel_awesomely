@@ -4,29 +4,31 @@ const authController = require('../controllers/authController');
 const cityController = require('../controllers/cityController');
 const countryController = require('../controllers/countryController');
 const userController = require('../controllers/userController');
+const commentController = require('../controllers/commentController');
 
 // destinationRouter.route('/')
 //   .get(countryController.indexCountries);
 
 destinationRouter.route('/countries/:id')
-    .get(countryController.getOneCountry);
+    .get(countryController.getOneCountry)
 
 destinationRouter.route('/countries')
-    .get(countryController.indexCountries);
+    .get(countryController.indexCountries)
 
 destinationRouter.route('/cities/:id')
-    .get(cityController.getOneCity);
-    // .put(cityController.update)
-    // .delete(cityController.destroy);
+    .get(cityController.getOneCity)
+    .post(commentController.makeOneComment)
+    
 
 destinationRouter.route('/cities')
-    .get(cityController.indexCities);
+    .get(cityController.indexCities)
 
 destinationRouter.route('/users/:id')
-   .get(userController.getOne);
+   .get(userController.getOne)
 
 destinationRouter.route('/login')
-   .get(userController.getOne);
-   // .post(userController.update);
+   .get(userController.getOne)
+//    .post(userController.update)
+
 
 module.exports = destinationRouter;

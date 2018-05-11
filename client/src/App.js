@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 // import Nav from './partials/Nav';
 // import Footer from './partials/Footer';
 import Landing from './components/Landing';
