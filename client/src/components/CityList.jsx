@@ -55,7 +55,7 @@ renderCityList() {
         <div key={city.id}>
         <Link to={{
           pathname: `/cities/${city.id}`,
-          state: {city_id: city.id}
+          state: {cityId: city.id}
         }} onClick={()=>this.props.grabCityId(city.id)}>{city.city_name}</Link>
       </div>)
     });

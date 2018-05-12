@@ -15,7 +15,7 @@ class City extends Component {
 
 componentDidMount(){
   console.log('hitting componentDidMount')
-  fetch(`/cities/${this.props.id}`)
+  fetch(`/cities/${this.props.match.params.id}`)
   .then((res) => res.json())
   .then((data) => {
     console.log('data from city componentWillMount', data)
@@ -23,8 +23,9 @@ componentDidMount(){
     this.setState({
       cityData: data,
       cityDataReceived: true,
-      city: data.name,
+      city: data.city_name,
       id: data.id,
+      name: data.results[0].name,
       snippet: data.results[0].snippet
     })
   })
@@ -37,12 +38,12 @@ componentDidMount(){
   }
 
   render(){
-    console.log('statecity', this.state.city)
-    console.log('statesnippet', this.state.snippet)
+    console.log('statecity', this.props.city)
+    console.log('statesnippet', this.props.snippet)
       return(
           <div className="city">
-            <h1>this.state.city{this.props.city}</h1>
-            <h2>this.state.snippet{this.props.snippet}</h2>
+            <h1>{this.state.name}</h1>
+            <h2>{this.state.snippet}</h2>
           </div>
       )
   }

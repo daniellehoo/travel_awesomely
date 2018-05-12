@@ -71,14 +71,14 @@ grabCityId(id) {
               render={() => (<Country
                 countryId={this.state.countryid}
                 grabCityId={this.grabCityId}
-                cityid={this.state.cityid}
+                cityId={this.state.cityid}
                 handleClick={(e) => this.handleClick(e)}
               />)}
                 exact path='/countries/:id'
               />
             <Route
               render={() => (<City
-              cityId={this.state.cityId}  
+              cityId={this.state.cityId}
               grabCityId={this.grabCityId}
               countryId={this.state.countryid}
             />)}

@@ -14,6 +14,7 @@ class Country extends Component {
       citiesListData: '',
       citiesListDataReceived: false,
       city: '',
+      city_id: '',
     };
 
     this.grabCityId = this.grabCityId.bind(this);
@@ -57,7 +58,7 @@ class Country extends Component {
             <div className="country">
             <CityList
               countryId={this.props.countryId}
-              cityId={this.state.id}
+              cityId={this.state.city_id}
               citiesListData= {this.state.citiesListData}
               grabCityId={this.grabCityId}
               handleClick={(e) => this.grabCityId(this.props.id)}
