@@ -37,6 +37,12 @@ class Landing extends Component {
           .then(() => {this.getComments()})
             e.preventDefault();
            }
+    
+    // this handleChange is also in commentForm, should it all be in city page when we are done?
+    handleChange(e) {
+        this.setState({comment: e.target.value,
+            city_id: this.state.city_id});
+          }
 
     // ========================================================
 
@@ -52,7 +58,9 @@ class Landing extends Component {
                 <br />
                 <button className="button"><Link to='/createaccount'>Create an account</Link></button>
                 <br/>
-                <Comment handleClick={this.delComment} comment={this.state.comments}/>
+                <Comment handleClick={this.delComment} 
+                         comment={this.state.comments} 
+                         handleChange={this.handleChange}/>
                 <CommentForm />
                 <Footer />
                 </div>
