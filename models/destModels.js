@@ -13,7 +13,7 @@ function findCountryById(id) {
 }
 
 function findCountryandCitiesByCountryId(id) {
-  console.log('inside the model')
+  // console.log('inside the model')
   return db.any(`
     SELECT *
     FROM countries
@@ -40,7 +40,7 @@ function findCityByCountryId(country_id) {
     WHERE country_id = $1`, country_id)
 }
 
-function findCommentById(id) {
+function findCommentByCityId(id) {
   return db.one(`
     SELECT * FROM comments
     WHERE city_id = $1`, id);
@@ -55,13 +55,18 @@ function updateOneComment(id, data) {
 }
 
 function saveComment(data) {
+  console.log('I am data from the model', data)
   return db.one(`
-    INSERT INTO comments
-    VALUES ($/comment/, $/city_id/
-    RETURNING *`, data);
+  INSERT INTO comments 
+  (comment, city_id)
+  VALUES 
+  ($/comment/, $/city_id/)
+  RETURNING *`, data);
 }
 
+// check this model, is there something wrong with this model?
 function destroyComment(id) {
+  console.log('inside the delete model')
   return db.none(`
     DELETE FROM comments
     WHERE id = $1`, id);
@@ -85,7 +90,7 @@ module.exports = {
   findCountryById,
   findAllCities,
   findCityById,
-  findCommentById,
+  findCommentByCityId,
   updateOneComment,
   saveComment,
   destroyComment,

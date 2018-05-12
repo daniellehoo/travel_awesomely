@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const cityController = require('../controllers/cityController');
 const countryController = require('../controllers/countryController');
 const userController = require('../controllers/userController');
+const commentController = require('../controllers/commentController');
 
 destinationRouter.route('/cities/:id')
     .get(cityController.getOneCity);
@@ -11,19 +12,34 @@ destinationRouter.route('/cities/:id')
       // .delete(cityController.destroy);
 
 destinationRouter.route('/countries/:id')
-    .get(countryController.getOneCountry);
+    .get(countryController.getOneCountry)
 
 destinationRouter.route('/countries')
-    .get(countryController.indexCountries);
+    .get(countryController.indexCountries)
+
+destinationRouter.route('/cities/:id')
+    .get(cityController.getOneCity)
+    // .get(commentController.getOneComment)
+    // .post(commentController.makeOneComment)
+    // .delete(commentController.deleteComment)
 
 destinationRouter.route('/cities')
-    .get(cityController.indexCities);
+    .get(cityController.indexCities)
 
 destinationRouter.route('/users/:id')
-   .get(userController.getOne);
+   .get(userController.getOne)
 
 destinationRouter.route('/login')
-   .get(userController.getOne);
-   // .post(userController.update);
+   .get(userController.getOne)
+//    .post(userController.update)
+
+destinationRouter.route('/comments')
+    .get(commentController.getAllCommentCity)
+
+destinationRouter.route('/comments/:id')
+    .delete(commentController.deleteComment)
+    .post(commentController.makeOneComment)
+    .put(commentController.updateOneComment)
+
 
 module.exports = destinationRouter;

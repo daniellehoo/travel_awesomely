@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Commentform from './Commentform';
+import Nav from '../partials/Nav';
+import Footer from '../partials/Footer';
+// import Commentform from './Commentform';
 
 class City extends Component {
   constructor(props){
@@ -12,6 +14,15 @@ class City extends Component {
       snippet: [],
     }
   }
+    // render(){
+    //     return(
+    //         <div>
+    //         <Nav />
+    //         {/* <h1>Milan</h1> */}
+    //         {/* render city snippet */}
+    //         {/* <Commentform /> */}
+    //          <Footer />
+    //         </div>
 
 componentDidMount(){
   console.log('hitting componentDidMount')
@@ -48,5 +59,6 @@ componentDidMount(){
       )
   }
 }
+
 
 export default City;

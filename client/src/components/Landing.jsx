@@ -2,8 +2,50 @@ import React, { Component } from 'react';
 // import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 import {Link} from 'react-router-dom';
+import CommentForm from './Commentform';
+import Comment from './Comment';
+import CommentList from './CommentList';
 
 class Landing extends Component {
+
+    // setting state for comment.jsx - testing - move to city page when built out ============
+    constructor(props){
+        super(props)
+        this.state = {comments: [],
+                      id: 42} //set comment.id declare comment with id? from where...city element? 
+
+        this.delComment = this.delComment.bind(this)
+        this.getComments = this.getComments.bind(this)
+       
+    }
+
+    componentWillMount(){
+        //get all quotes with city_id
+    }
+
+    getComments(){
+        console.log('I am resetting state in getComments and rendering them')
+        // fetch(`/comments`)
+    }
+
+
+    delComment(e){
+        console.log('I am deleting from:', this.state.id)
+        fetch(`/comments/${this.state.id}`, {
+                method: 'DELETE' 
+          })
+          .then(() => {this.getComments()})
+            e.preventDefault();
+           }
+    
+    // this handleChange is also in commentForm, should it all be in city page when we are done?
+    handleChange(e) {
+        this.setState({comment: e.target.value,
+            city_id: this.state.city_id});
+          }
+
+    // ========================================================
+
     render(){
         return(
 
@@ -15,6 +57,11 @@ class Landing extends Component {
                 <br />
                 <br />
                 <button className="button"><Link to='/createaccount'>Create an account</Link></button>
+                <br/>
+                <Comment handleClick={this.delComment} 
+                         comment={this.state.comments} 
+                         handleChange={this.handleChange}/>
+                <CommentForm />
                 <Footer />
                 </div>
             )
