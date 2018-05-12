@@ -25,22 +25,11 @@ module.exports = {
     });
   },
 
-  // getOneCity(req, res, next) {
-  //   travelDb.findCityById(req.params.id)
-  //   .then((data) => {
-  //     console.log('this is all: ', data)
-  //     res.json(data);
-  //     next();
-  //   })
-  //   .catch(err => {
-  //       next(err);
-  //   });
-  // },
-
   getOneCity(req, res, next) {
+    console.log('getonecity')
 // Get query parameter from req.body from search;
 // make fetch call to Triposo API with dynamic variable
-   travelDb.findCityByCityId(req.params.id)
+   travelDb.findCityById(req.params.id)
       .then(data => {
       let str = data.city_name;
       str = str.replace(/\s+/g, '_')
@@ -50,7 +39,7 @@ module.exports = {
         .then(response => response.json())
           .then(data => {
             // console.log('danielle wants this', data.results[0].snippet)
-            res.json(data)
+            res.send(data)
 
           })
           .catch(err => {

@@ -5,12 +5,6 @@ const cityController = require('../controllers/cityController');
 const countryController = require('../controllers/countryController');
 const userController = require('../controllers/userController');
 
-// destinationRouter.route('/')
-//   .get(countryController.indexCountries);
-
-destinationRouter.route('/countries/:id/superhacky')
-    .get(countryController.superHacky)
-
 destinationRouter.route('/cities/:id')
     .get(cityController.getOneCity);
       // .put(cityController.update)

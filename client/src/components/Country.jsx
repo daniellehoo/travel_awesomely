@@ -10,15 +10,22 @@ class Country extends Component {
     super(props);
     this.state = {
       country: '',
-      id: ''
+      id: '',
+      citiesListData: '',
+      citiesListDataReceived: false,
+      city: '',
     };
+
+    this.grabCityId = this.grabCityId.bind(this);
+
   }
 
     componentWillMount(){
-      console.log('react propid: ', this.props.id)
-      fetch(`/countries/${this.props.id}`)
+      console.log('react stateid: ', this.props.countryId);
+      fetch(`/countries/${this.props.countryId}`)
       .then((res) => res.json())
       .then((data) => {
+
         console.log('this is what were after', data)
         this.setState({
           citiesListData: data,
@@ -35,16 +42,25 @@ class Country extends Component {
       console.log('this is props', this.props)
     }
 
+    grabCityId(id) {
+      console.log('this is id', id)
+      this.setState({
+        city_id: id
+      })
+    }
+
     render(props){
-      console.log('thisiscountry', this.props.thestate)
+      console.log('thisiscountry', this.props.countryId)
         return(
             <div>
             <Nav />
             <div className="country">
             <CityList
-              thestate={this.props.thestate}
-              grabId={this.props.grabId}
-              handleClick={(e) => this.handleCityClick(e)}
+              countryId={this.props.countryId}
+              cityId={this.state.id}
+              citiesListData= {this.state.citiesListData}
+              grabCityId={this.grabCityId}
+              handleClick={(e) => this.grabCityId(this.props.id)}
             />
             </div>
             <Footer />

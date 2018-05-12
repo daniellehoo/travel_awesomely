@@ -19,19 +19,27 @@ class App extends Component {
       response: '',
       country: '',
       id: 0,
-      d: 1
+      countryid: 0,
+      cityid: 0,
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleCityClick = this.handleCityClick.bind(this);
     this.grabId = this.grabId.bind(this);
+    this.grabCityId = this.grabCityId.bind(this);
 }
 
 
 grabId(id) {
     this.setState({
-      d: id
+      countryid: id
     })
+}
+
+grabCityId(id) {
+  this.setState({
+    cityid: id
+  })
 }
 
     handleClick(e) {
@@ -53,7 +61,7 @@ grabId(id) {
     }
 
   render() {
-    console.log('inApp', this.state.d)
+    console.log('inAppcountryidis:', this.state.countryid)
     return (
       <div className="App">
         <p className="App-intro">{this.state.response}</p>
@@ -61,17 +69,20 @@ grabId(id) {
           <Switch>
             <Route
               render={() => (<Country
-                thestate={this.state.d}
+                countryId={this.state.countryid}
+                grabCityId={this.grabCityId}
+                cityid={this.state.cityid}
                 handleClick={(e) => this.handleClick(e)}
-                handleClick={(e) => this.handleCityClick(e)}
               />)}
                 exact path='/countries/:id'
               />
             <Route
               render={() => (<City
-              thestate={this.state.d}/>)}
-              exact path='/city/:id'
-              component={City}
+              cityId={this.state.cityId}  
+              grabCityId={this.grabCityId}
+              countryId={this.state.countryid}
+            />)}
+              exact path='/cities/:id' component={City}
             />
             <Route
               render={() => (<Countries

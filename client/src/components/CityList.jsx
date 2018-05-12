@@ -9,12 +9,11 @@ class CityList extends Component {
       citiesDataReceived: false,
       city: '',
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
-    console.log('state is this', this.props.thestate)
-    fetch(`/countries/${this.props.thestate}`)
+    fetch(`/countries/${this.props.countryId}`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data)
@@ -27,27 +26,29 @@ class CityList extends Component {
       console.log(err))
   }
 
-  city(city_id){
-    fetch(`/cities/${city_id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-      this.setState({
-        citiesListData: data,
-        citiesListDataReceived: true,
-        city: data.name,
-        id: data.id
-      })
-    })
-    .catch((err) =>
-      console.log(err))
-  }
+  // city(city_id){
+  //   console.log('hitting city_idincitylistss')
+  //   fetch(`/cities/${city_id}`)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data)
+  //     this.setState({
+  //       citiesListData: data,
+  //       citiesListDataReceived: true,
+  //       city: data.name,
+  //       id: data.id
+  //     })
+  //   })
+  //   .catch((err) =>
+  //     console.log(err))
+  // }
 
 handleClick(e) {
   console.log('this is props from cities', this.props)
-
 }
+
 renderCityList() {
+
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
       return (
@@ -55,8 +56,7 @@ renderCityList() {
         <Link to={{
           pathname: `/cities/${city.id}`,
           state: {city_id: city.id}
-        }} onClick={()=>this.props.grabId(city.id)}>{city.city_name}
-        </Link>
+        }} onClick={()=>this.props.grabCityId(city.id)}>{city.city_name}</Link>
       </div>)
     });
   }

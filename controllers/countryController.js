@@ -23,13 +23,9 @@ function getOneCountry(req, res, next) {
   });
 }
 
-function superHacky(req, res) {
-  let theID = req.params.id;
-  res.json({ countryId: theID})
-}
+
 
 module.exports = {
   indexCountries,
-  getOneCountry,
-  superHacky
+  getOneCountry
 };
