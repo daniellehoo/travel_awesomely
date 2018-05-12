@@ -19,7 +19,7 @@ function getOneCountry(req, res, next) {
   .then((data) => {
     // res.locals.country = data;
     // next();
-    console.log('this is for sure fucking firing')
+    console.log('this is for sure firing')
     console.log('data from controller:' + data)
     res.json(data)
   })

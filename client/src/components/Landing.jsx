@@ -4,29 +4,35 @@ import Footer from '../partials/Footer';
 import {Link} from 'react-router-dom';
 import CommentForm from './Commentform';
 import Comment from './Comment';
+import CommentList from './CommentList';
 
 class Landing extends Component {
 
     // setting state for comment.jsx - testing - move to city page when built out ============
     constructor(props){
         super(props)
-        this.state = {comment: '',
-                      city_id: 3};
+        this.state = {comments: [],
+                      id: 37}
 
         this.delComment = this.delComment.bind(this)
         this.getComments = this.getComments.bind(this)
        
     }
 
-    getComments(){
-        console.log('DELETE! I am going to return all the comments')
+    componentWillMount(){
+        //get all quotes with cit_id
     }
 
+    getComments(){
+        console.log('I am resetting state in getComments')
+        // fetch(`/comments`)
+    }
+
+
     delComment(e){
-        return fetch(`/cities/${this.state.city_id}`, {
+        fetch(`/comments/${this.state.id}`, {
                 method: 'DELETE' 
           })
-        
           .then(() => {this.getComments()})
             e.preventDefault();
            }
@@ -45,7 +51,7 @@ class Landing extends Component {
                 <br />
                 <button className="button"><Link to='/createaccount'>Create an account</Link></button>
                 <br/>
-                <Comment handleClick={this.delComment}/>
+                <Comment handleClick={this.delComment} comment={this.state.comments}/>
                 <CommentForm />
                 <Footer />
                 </div>

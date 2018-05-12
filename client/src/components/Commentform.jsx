@@ -5,7 +5,7 @@ class CommentForm extends Component {
     constructor(props){
         super(props)
         this.state = {comment: '',
-                      city_id: props.city_id};
+                      city_id: 2};
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,12 +20,12 @@ class CommentForm extends Component {
 
     handleChange(e) {
         this.setState({comment: e.target.value,
-                        city_id: 3});
+                        city_id: this.state.city_id});
       }
 
     handleSubmit(e, city_id){
-    fetch(`/cities/${this.state.city_id}`, {
-            method: 'POST' ,
+    fetch(`/comments/${this.state.city_id}`, {
+            method: 'POST',
             headers: ({"content-type": "application/json"}),
             body: JSON.stringify({
                 "comment": this.state.comment,

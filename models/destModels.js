@@ -40,7 +40,7 @@ function findCityByCountryId(country_id) {
     WHERE country_id = $1`, country_id)
 }
 
-function findCommentById(id) {
+function findCommentByCityId(id) {
   return db.one(`
     SELECT * FROM comments
     WHERE city_id = $1`, id);
@@ -90,7 +90,7 @@ module.exports = {
   findCountryById,
   findAllCities,
   findCityById,
-  findCommentById,
+  findCommentByCityId,
   updateOneComment,
   saveComment,
   destroyComment,

@@ -16,10 +16,10 @@ destinationRouter.route('/countries')
     .get(countryController.indexCountries)
 
 destinationRouter.route('/cities/:id')
-    // .get(cityController.getOneCity)
-    .get(commentController.getOneComment)
-    .post(commentController.makeOneComment)
-    .delete(commentController.deleteComment)
+    .get(cityController.getOneCity)
+    // .get(commentController.getOneComment)
+    // .post(commentController.makeOneComment)
+    // .delete(commentController.deleteComment)
 
 destinationRouter.route('/cities')
     .get(cityController.indexCities)
@@ -30,6 +30,14 @@ destinationRouter.route('/users/:id')
 destinationRouter.route('/login')
    .get(userController.getOne)
 //    .post(userController.update)
+
+destinationRouter.route('/comments')
+    .get(commentController.getAllCommentCity)
+
+destinationRouter.route('/comments/:id')
+    .delete(commentController.deleteComment)
+    .post(commentController.makeOneComment)
+    .put(commentController.updateOneComment)
 
 
 module.exports = destinationRouter;

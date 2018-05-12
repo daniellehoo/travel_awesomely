@@ -1,7 +1,7 @@
 const travelDb = require ('../models/destModels');
 
-function getOneComment(req, res, next) {
-  travelDb.findCommentById(req.params.id)
+function getAllCommentCity(req, res, next) {
+  travelDb.findCommentByCityId(req.params.id)
   .then((data) => {
     // res.locals.comment = data;
     // next();
@@ -22,7 +22,7 @@ function makeOneComment(req, res, next) {
   console.log('make comment controlller!!', req.body)
   travelDb.saveComment(req.body)
   .then((data) => { 
-    // console.log('I am data:', data)   
+    console.log('I am data:', data)   
   res.json(data);
     
   })
@@ -39,7 +39,7 @@ function deleteComment(req, res, next) {
 }
 
 module.exports = {
-  getOneComment,
+  getAllCommentCity,
   updateOneComment,
   makeOneComment,
   deleteComment,
