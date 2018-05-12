@@ -12,7 +12,7 @@ class Landing extends Component {
     constructor(props){
         super(props)
         this.state = {comments: [],
-                      id: 37}
+                      id: 41}
 
         this.delComment = this.delComment.bind(this)
         this.getComments = this.getComments.bind(this)
