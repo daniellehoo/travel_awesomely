@@ -5,7 +5,7 @@ class CommentForm extends Component {
     constructor(props){
         super(props)
         this.state = {comment: '',
-                      city_id: 3};
+                      city_id: props.city_id};
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)

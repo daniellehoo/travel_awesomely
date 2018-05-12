@@ -13,7 +13,7 @@ function findCountryById(id) {
 }
 
 function findCountryandCitiesByCountryId(id) {
-  console.log('inside the model')
+  // console.log('inside the model')
   return db.any(`
     SELECT *
     FROM countries
@@ -64,7 +64,9 @@ function saveComment(data) {
   RETURNING *`, data);
 }
 
+// check this model, is there something wrong with this model?
 function destroyComment(id) {
+  console.log('inside the delete model')
   return db.none(`
     DELETE FROM comments
     WHERE id = $1`, id);

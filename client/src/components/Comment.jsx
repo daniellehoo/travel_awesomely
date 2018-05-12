@@ -3,13 +3,15 @@ import Landing from './Landing';
 
 function Comment(props){
     return(
-        <div>
+       
+        <form onSubmit={props.handleClick}>
         <p>
-        {/* {props.comment} */}
+        {props.comment}
         I will hold some comments
         </p>
-        <button onClick={props.delComment}>Delete</button>
-        </div>
+        <input type="submit" value="delete"/>
+        </form>
+       
     )
 }
 

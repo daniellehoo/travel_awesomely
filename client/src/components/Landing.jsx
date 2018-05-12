@@ -7,28 +7,28 @@ import Comment from './Comment';
 
 class Landing extends Component {
 
-    // setting state for comment - testing - move to city page when build out ============
+    // setting state for comment.jsx - testing - move to city page when built out ============
     constructor(props){
         super(props)
         this.state = {comment: '',
                       city_id: 3};
 
         this.delComment = this.delComment.bind(this)
+        this.getComments = this.getComments.bind(this)
        
     }
 
+    getComments(){
+        console.log('DELETE! I am going to return all the comments')
+    }
+
     delComment(e){
-        fetch(`/cities/${this.state.city_id}`, {
-                method: 'POST' ,
-                headers: ({"content-type": "application/json"}),
-                body: JSON.stringify({
-                    "comment": this.state.comment,
-                    "city_id": this.state.city_id
-                })
+        return fetch(`/cities/${this.state.city_id}`, {
+                method: 'DELETE' 
           })
+        
           .then(() => {this.getComments()})
             e.preventDefault();
-        console.log('I am going to delete you!')
            }
 
     // ========================================================
@@ -45,7 +45,7 @@ class Landing extends Component {
                 <br />
                 <button className="button"><Link to='/createaccount'>Create an account</Link></button>
                 <br/>
-                <Comment />
+                <Comment handleClick={this.delComment}/>
                 <CommentForm />
                 <Footer />
                 </div>

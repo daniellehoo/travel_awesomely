@@ -22,7 +22,7 @@ function makeOneComment(req, res, next) {
   console.log('make comment controlller!!', req.body)
   travelDb.saveComment(req.body)
   .then((data) => { 
-    console.log('I am data:', data)   
+    // console.log('I am data:', data)   
   res.json(data);
     
   })
@@ -30,6 +30,7 @@ function makeOneComment(req, res, next) {
 }
 
 function deleteComment(req, res, next) {
+  console.log('deleteComment controller!!!!!')
   travelDb.destroyComment(req.params.id)
   .then(() => {
     // next();
