@@ -12,7 +12,7 @@ class Landing extends Component {
     constructor(props){
         super(props)
         this.state = {comments: [],
-                      id: 41}
+                      id: 42} //set comment.id declare comment with id? from where...city element? 
 
         this.delComment = this.delComment.bind(this)
         this.getComments = this.getComments.bind(this)
@@ -20,16 +20,17 @@ class Landing extends Component {
     }
 
     componentWillMount(){
-        //get all quotes with cit_id
+        //get all quotes with city_id
     }
 
     getComments(){
-        console.log('I am resetting state in getComments')
+        console.log('I am resetting state in getComments and rendering them')
         // fetch(`/comments`)
     }
 
 
     delComment(e){
+        console.log('I am deleting from:', this.state.id)
         fetch(`/comments/${this.state.id}`, {
                 method: 'DELETE' 
           })
