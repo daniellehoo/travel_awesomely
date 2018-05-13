@@ -1,35 +1,53 @@
 import React, { Component } from 'react';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
+import CommentForm from './Commentform';
+import Comment from './Comment';
 import CommentList from './CommentList';
 
 class City extends Component {
   constructor(props){
     super(props);
     this.state = {
-      city: '',
-      id: '',
       cityData: '',
       cityDataReceived: false,
+      city: '',
+      id: '',
+      name: '',
       snippet: [],
+      comments: [],
+      comment_id: 0,
     }
+
+    this.delComment = this.delComment.bind(this);
+    this.getComments = this.getComments.bind(this)
+
   }
 
 componentDidMount(){
+  console.log('this.props.match.params.id', this.props.match.params.id)
   fetch(`/cities/${this.props.match.params.id}`)
   .then((res) => res.json())
   .then((data) => {
+    console.log('data from city componentWillMount', data)
+    console.log('danielle wants this', data.results[0].snippet)
     this.setState({
       cityData: data,
       cityDataReceived: true,
       city: data.city_name,
       id: data.id,
       name: data.results[0].name,
-      snippet: data.results[0].snippet
+      snippet: data.results[0].snippet,
+      comments: data.comments,
+      comment_id: data.comments.city_id
     })
   })
   .catch((err) =>
     console.log(err))
+}
+
+getComments(){
+    console.log('I am resetting state in getComments and rendering them')
 }
 
 delComment(e){
@@ -44,43 +62,25 @@ delComment(e){
 // this handleChange is also in commentForm, should it all be in city page when we are done?
 handleChange(e) {
     this.setState({comment: e.target.value,
-        city_id: this.state.city_id});
+        city_id: this.state.id});
       }
 
   handleClick() {
     console.log('this is props', this.props)
   }
 
-  handleDelete() {
-
-  }
-
-  handleEdit() {
-
-  }
-
-  handleSubmit() {
-
-  }
-
   render(){
-    console.log('statecity', this.state.name)
-    console.log('statesnippet', this.state.snippet)
+    console.log('statecity', this.props.city)
+    console.log('statesnippet', this.props.snippet)
       return(
           <div className="city">
             <Nav />
             <h1>{this.state.name}</h1>
             <h2>{this.state.snippet}</h2>
-            {/* <Route
-          render={() => (<CommentForm onSubmit={this.handleSubmit} />)}
-          path='/new'
-        /> */}
-            <CommentList
-              cityId={this.props.match.params.id}
-              // comments={}
-              onDelete={this.handleDelete}
-              onEdit={this.handleEdit}
-            />
+            <Comment handleClick={this.delComment}
+                     comment={this.state.comments}
+                     handleChange={this.handleChange}/>
+            <CommentForm />
             <Footer />
           </div>
       )

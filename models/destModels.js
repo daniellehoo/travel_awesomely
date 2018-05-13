@@ -1,6 +1,7 @@
 // const pgp = require('pg-promise')();
 const db = require('../config/connection');
 
+//Country Models
 function findAllCountries() {
   return db.many(`
     SELECT * FROM countries`);
@@ -13,7 +14,6 @@ function findCountryById(id) {
 }
 
 function findCountryandCitiesByCountryId(id) {
-  // console.log('inside the model')
   return db.any(`
     SELECT *
     FROM countries
@@ -22,6 +22,8 @@ function findCountryandCitiesByCountryId(id) {
     WHERE countries.id = $1
     `, id)
 }
+
+//City Models
 
 function findAllCities() {
   return db.many(`
@@ -40,8 +42,9 @@ function findCityByCountryId(country_id) {
     WHERE country_id = $1`, country_id)
 }
 
-function findCommentByCityId(id) {
-  return db.one(`
+//Comments Models
+function findCommentsByCityId(id) {
+  return db.any(`
     SELECT * FROM comments
     WHERE city_id = $1`, id);
 }
@@ -57,9 +60,9 @@ function updateOneComment(id, data) {
 function saveComment(data) {
   console.log('I am data from the model', data)
   return db.one(`
-  INSERT INTO comments 
+  INSERT INTO comments
   (comment, city_id)
-  VALUES 
+  VALUES
   ($/comment/, $/city_id/)
   RETURNING *`, data);
 }
@@ -72,6 +75,7 @@ function destroyComment(id) {
     WHERE id = $1`, id);
 }
 
+//User models
 function getOneUser(id) {
   return db.one(`
     SELECT * FROM users
@@ -90,7 +94,7 @@ module.exports = {
   findCountryById,
   findAllCities,
   findCityById,
-  findCommentByCityId,
+  findCommentsByCityId,
   updateOneComment,
   saveComment,
   destroyComment,

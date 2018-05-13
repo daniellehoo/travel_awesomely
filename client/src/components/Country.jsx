@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import City from './City';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 import CityList from './CityList';
-import { Link } from 'react-router-dom';
 
 class Country extends Component {
   constructor(props){

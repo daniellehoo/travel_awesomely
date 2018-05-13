@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Route, Switch, Redirect} from 'react-router-dom';
-// import Nav from './partials/Nav';
-// import Footer from './partials/Footer';
+import {Route, Switch} from 'react-router-dom';
 import Landing from './components/Landing';
 import City from './components/City';
 import Login from './components/Login';
 import Country from './components/Country';
 import Countries from './components/Countries';
 import CreateAccount from './components/CreateAccount';
-import CityList from './components/CityList';
 
 class App extends Component {
   constructor(props) {
@@ -29,18 +26,17 @@ class App extends Component {
     this.grabCityId = this.grabCityId.bind(this);
 }
 
+  grabId(id) {
+      this.setState({
+        countryid: id
+      })
+  }
 
-grabId(id) {
+  grabCityId(id) {
     this.setState({
-      countryid: id
+      cityid: id
     })
-}
-
-grabCityId(id) {
-  this.setState({
-    cityid: id
-  })
-}
+  }
 
     handleClick(e) {
       e.preventDefault();

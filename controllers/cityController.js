@@ -17,7 +17,6 @@ module.exports = {
   getCityByCountryId(req, res, next) {
     travelDb.findCityByCountryId(req.params.id)
     .then((data) => {
-      console.log('this is getCityByCountryId', data)
       res.json(data);
     })
     .catch(err => {
@@ -26,7 +25,6 @@ module.exports = {
   },
 
   getOneCity(req, res, next) {
-    console.log('getonecity')
 // Get query parameter from req.body from search;
 // make fetch call to Triposo API with dynamic variable
    travelDb.findCityById(req.params.id)
@@ -34,16 +32,12 @@ module.exports = {
       let str = data.city_name;
       str = str.replace(/\s+/g, '_')
       // Begin API query
-      console.log('AM I RUNNININGGG')
       fetch(`https://www.triposo.com/api/20180223/location.json?id=${str}&account=${process.env.ACCOUNT}&token=${process.env.SECRET_KEY}`)
         .then(response => response.json())
           .then(data => {
-            // console.log('danielle wants this', data.results[0].snippet)
             res.send(data)
-
           })
           .catch(err => {
-            console.log('errrrrrror', err)
           })
       })
     .catch(err => {
