@@ -10,6 +10,7 @@ class CommentList extends Component {
       commentList: [],
       commentDataReceived: false,
       commentId: 0,
+      comment: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.delComment = this.delComment.bind(this);
@@ -17,7 +18,6 @@ class CommentList extends Component {
   }
 
 componentWillMount(){
-  console.log('cityId from CommentList is:', this.props.cityId)
   fetch(`/comments/${this.props.cityId}`)
   .then((res) => res.json())
   .then((data) => {
@@ -34,19 +34,6 @@ componentWillMount(){
     console.log(err))
 }
 
-  getComments(){
-    console.log('hitting getComments')
-    fetch(`./comments/${this.props.cityId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('@@@@@@@@@@@@@@@@data', data)
-        this.setState({
-          commentList: data
-        })
-      })
-      .catch((err) => console.log(err))
-  }
-
   handleClick() {
     console.log('this is props', this.props)
   }
@@ -60,32 +47,6 @@ componentWillMount(){
   //       .then(() => this.getComments());
   // }
 
-// delComment(id){
-//       console.log('I am deleting from:', this.state.commentId)
-//       fetch(`/comments/${this.state.commentId}`, {
-//               method: 'DELETE'
-//         })
-//         .then(resp => {
-//           if (!resp.ok) throw new Error(resp.statusMessage);
-//           return resp.json();
-//         })
-//         .then(respBody => {
-//           this.setState({})
-//           this.setState({
-//             commentList: this.state.commentList.filter(comment => comment !== id)
-//           })
-//       })
-// }
-
-delComment(e){
-    console.log('I am deleting from:', this.state.commentId)
-    fetch(`/comments/${this.state.commentId}`, {
-            method: 'DELETE'
-      })
-      .then(() => {this.getComments})
-        e.preventDefault();
-       }
-
 
   // this handleChange is also in commentForm, should it all be in city page when we are done?
   // handleChange() {
@@ -93,9 +54,6 @@ delComment(e){
   //         city_id: this.state.city_id});
   //       }
 
-    // handleDelete(id) {
-    //   this.delComment(id)
-    // }
 
     edit(e){
       e.preventDefault();
@@ -117,6 +75,15 @@ delComment(e){
     handleSubmit() {
 
     }
+    
+    delComment(e){
+      console.log('I am deleting from:', this.props.commentId)
+      fetch(`/comments/${this.props.commentId}`, {
+        method: 'DELETE'
+      })
+      .then(() => {this.props.getComments})
+      // e.preventDefault();
+    }
 
   renderCommentList() {
     if (this.state.commentDataReceived) {
@@ -125,8 +92,9 @@ delComment(e){
           <div key={i}>
             <h2>{comment.comment}</h2>
             <Comment
+              cityId={this.state.id}
               commentId={comment.id}
-              comment={comment.comment}
+              comment={this.state.comment}
               edit={this.edit}
               handleDelete={this.delComment}
             />
@@ -134,6 +102,7 @@ delComment(e){
       });
     }
   }
+
 
   render(){
     console.log('commentData', this.state.commentData)

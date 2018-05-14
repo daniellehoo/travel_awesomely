@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Comment(props){
+class Comment extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      id: '',
+      cityData: '',
+      snippet: [],
+    }
+    this.delComment = this.delComment.bind(this);
+  }
 
+
+delComment(e){
+  console.log('delcomment', this.props.commentId)
+  fetch(`/comments/${this.props.commentId}`, {
+    method: 'DELETE'
+  })
+  .then(() => {this.props.getComments})
+  // e.preventDefault();
+}
+
+  render(){
     return(
         <div>
         <form>
             <span>
-              <h3>{props.comment}</h3>
-              <button onClick={() => props.edit(props.commentId)}>Edit</button>
+              <button onClick={() => this.props.edit(this.props.commentId)}>Edit</button>
               <br />
-              <button onClick={() => props.handleDelete(props.commentId)}>Delete</button>
+              <button onClick={() => this.delComment(this.props.commentId)}>Delete</button>
               <br />
             </span>
-            <input type="text" value={props.comment} onChange={props.handleChange} />
+            <input type="text" value={this.props.comment} onChange={this.props.handleChange} />
             <br/>
             <input type="submit" value="update" />
         </form>
         </div>
     )
+}
 }
 
 export default Comment;

@@ -36,13 +36,12 @@ componentDidMount(){
 }
 
 getComments(){
-  console.log('hitting getComments')
-  console.log('thispropscityid', this.state.id)
   fetch(`./comments/${this.state.id}`)
     .then((res) => res.json())
     .then((data) => {
       this.setState({
-        commentList: data
+        commentList: data,
+        commentId: data.id
       })
     })
     .catch((err) => console.log(err))
@@ -58,8 +57,6 @@ getComments(){
     }
 
   render(){
-    console.log('statecity', this.state.name)
-    console.log('statesnippet', this.state.snippet)
       return(
           <div className="city">
             <Nav />
@@ -73,6 +70,8 @@ getComments(){
               cityId={this.props.match.params.id}
               onDelete={this.handleDelete}
               onEdit={this.handleEdit}
+              // commentId={this.state.commentId}
+              getComment={this.getComments}
             />
             <CommentForm
             getComment={this.getComments}

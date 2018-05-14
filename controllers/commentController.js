@@ -29,9 +29,9 @@ function updateOneComment(req, res, next) {
 
 function deleteComment(req, res, next) {
   console.log('deleteComment controller!!!!!')
+  console.log('req.params.id', req.params.id)
   travelDb.destroyComment(req.params.id)
   .then(() => {
-    console.log('****indeletecomment')
     res.json({delete: 'ok'})
   })
   .catch(next);
