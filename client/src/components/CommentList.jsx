@@ -36,9 +36,10 @@ componentWillMount(){
 
   getComments(){
     console.log('hitting getComments')
-    fetch('./comments/${this.props.cityId}')
+    fetch(`./comments/${this.props.cityId}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log('@@@@@@@@@@@@@@@@data', data)
         this.setState({
           commentList: data
         })
@@ -59,22 +60,31 @@ componentWillMount(){
   //       .then(() => this.getComments());
   // }
 
-delComment(id){
-      console.log('I am deleting from:', this.state.commentId)
-      fetch(`/comments/${this.state.commentId}`, {
-              method: 'DELETE'
-        })
-        .then(resp => {
-          if (!resp.ok) throw new Error(resp.statusMessage);
-          return resp.json();
-        })
-        .then(respBody => {
-          this.setState({})
-          this.setState({
-            commentList: this.state.commentList.filter(comment => comment !== id)
-          })
+// delComment(id){
+//       console.log('I am deleting from:', this.state.commentId)
+//       fetch(`/comments/${this.state.commentId}`, {
+//               method: 'DELETE'
+//         })
+//         .then(resp => {
+//           if (!resp.ok) throw new Error(resp.statusMessage);
+//           return resp.json();
+//         })
+//         .then(respBody => {
+//           this.setState({})
+//           this.setState({
+//             commentList: this.state.commentList.filter(comment => comment !== id)
+//           })
+//       })
+// }
+
+delComment(e){
+    console.log('I am deleting from:', this.state.commentId)
+    fetch(`/comments/${this.state.commentId}`, {
+            method: 'DELETE'
       })
-}
+      .then(() => {this.getComments})
+        e.preventDefault();
+       }
 
 
   // this handleChange is also in commentForm, should it all be in city page when we are done?
@@ -111,8 +121,6 @@ delComment(id){
   renderCommentList() {
     if (this.state.commentDataReceived) {
       return this.state.commentList.map((comment, i) => {
-        console.log('inrendercommentList comment.id', comment.id)
-        console.log('inrendercommentList comment', comment.comment)
         return (
           <div key={i}>
             <h2>{comment.comment}</h2>

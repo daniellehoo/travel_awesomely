@@ -28,9 +28,9 @@ class App extends Component {
 }
 
   grabId(id) {
-      this.setState({
-        countryid: id
-      })
+    this.setState({
+      countryid: id
+    })
   }
 
   grabCityId(id) {
@@ -56,6 +56,19 @@ class App extends Component {
         id: this.props.id
       })
     }
+
+    // getComments(){
+    //   console.log('hitting getComments')
+    //   console.log('thispropscityid', this.props.city_id)
+    //   fetch('./comments/${this.props.city_id}')
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       this.setState({
+    //         commentList: data
+    //       })
+    //     })
+    //     .catch((err) => console.log(err))
+    // }
 
   render() {
     console.log('inAppcountryidis:', this.state.countryid)
@@ -89,9 +102,10 @@ class App extends Component {
             />
             <Route
               render={() => (<CommentForm
-                handleClick={(e) => this.handleClick(e)}/>)}
+                // handleClick={(e) => this.handleClick(e)}
+              />)}
                 exact path='/commentform'
-            />          
+            />
             <Route exact path='/createaccount'
             component={CreateAccount}/>
             <Route exact path='/login'

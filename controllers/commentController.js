@@ -4,7 +4,6 @@ function getAllCommentsByCity(req, res, next) {
   travelDb.findCommentsByCityId(req.params.id)
   .then((data) => {
     res.json(data)
-    console.log('datafromcommentController', data)
   })
   .catch(err => {
     next(err);
@@ -32,7 +31,8 @@ function deleteComment(req, res, next) {
   console.log('deleteComment controller!!!!!')
   travelDb.destroyComment(req.params.id)
   .then(() => {
-    next();
+    console.log('****indeletecomment')
+    res.json({delete: 'ok'})
   })
   .catch(next);
 }
