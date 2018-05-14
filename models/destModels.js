@@ -69,7 +69,7 @@ function saveComment(data) {
 
 // check this model, is there something wrong with this model?
 function destroyComment(id) {
-  console.log('inside the delete model')
+  console.log('inside the delete model', id)
   return db.none(`
     DELETE FROM comments
     WHERE id = $1`, id);

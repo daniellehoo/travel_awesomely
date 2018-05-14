@@ -7,9 +7,9 @@ function Comment(props){
         <form>
             <span>
               <h3>{props.comment}</h3>
-              <button onClick={() => this.props.edit(this.props.commentId)}>Edit</button>
+              <button onClick={() => props.edit(props.commentId)}>Edit</button>
               <br />
-              <button onClick={() => this.props.handleDelete(this.props.commentId)}>Delete</button>
+              <button onClick={() => props.handleDelete(props.commentId)}>Delete</button>
               <br />
             </span>
             <input type="text" value={props.comment} onChange={props.handleChange} />

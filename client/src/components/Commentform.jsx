@@ -5,25 +5,20 @@ class CommentForm extends Component {
     constructor(props){
         super(props)
         this.state = {comment: '',
-                      city_id: 2};
+                      city_id: 0};
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.getComments = this.getComments.bind(this)
-    }
-
-    getComments(){
-        //return all the comments
-        console.log('I am returning all the commments')
-        //still need to build out the fetch for all the comments
+        // this.getComments = this.getComments.bind(this)
     }
 
     handleChange(e) {
         this.setState({comment: e.target.value,
-                        city_id: this.state.city_id});
+                        city_id: this.props.cityId});
       }
 
     handleSubmit(e, city_id){
+      console.log('hitting handleSubmit')
     fetch(`/comments/${this.state.city_id}`, {
             method: 'POST',
             headers: ({"content-type": "application/json"}),
@@ -32,15 +27,15 @@ class CommentForm extends Component {
                 "city_id": this.state.city_id
             })
       })
-      .then(() => {this.getComments()})
-        e.preventDefault();
+      .then(() => {this.props.getComments})
+        // e.preventDefault();
        }
 
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
             <label>
-            Comment
+            Add New Comment
             <br/>
             <input type="text" value={this.state.comment} onChange={this.handleChange} />
             </label>
@@ -48,6 +43,8 @@ class CommentForm extends Component {
             <input type="submit" value="submit" />
             </form>
         )
+
+        // this.props.location.state.id
     }
 }
 export default CommentForm;
