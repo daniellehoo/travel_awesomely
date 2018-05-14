@@ -35,7 +35,7 @@ class CommentForm extends Component {
         return(
             <form onSubmit={this.handleSubmit}>
             <label>
-            Comment
+            Add New Comment
             <br/>
             <input type="text" value={this.state.comment} onChange={this.handleChange} />
             </label>
