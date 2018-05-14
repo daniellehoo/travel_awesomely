@@ -5,12 +5,13 @@ function Comment(props){
     return(
         <div>
         <form>
-            <p>Comment</p>
             <span>
-                <button onClick={props.handleClick}>Delete</button>
+              <h3>{props.comment}</h3>
+              <button onClick={() => this.props.edit(this.props.commentId)}>Edit</button>
+              <br />
+              <button onClick={() => this.props.handleDelete(this.props.commentId)}>Delete</button>
+              <br />
             </span>
-            <br />
-            <br />
             <input type="text" value={props.comment} onChange={props.handleChange} />
             <br/>
             <input type="submit" value="update" />

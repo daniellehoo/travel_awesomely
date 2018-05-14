@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import Landing from './components/Landing';
-import City from './components/City';
-import Login from './components/Login';
-import Country from './components/Country';
-import Countries from './components/Countries';
 import CreateAccount from './components/CreateAccount';
+import Login from './components/Login';
+import Countries from './components/Countries';
+import Country from './components/Country';
+import City from './components/City';
+import CommentForm from './components/CommentForm';
 
 class App extends Component {
   constructor(props) {
@@ -86,6 +87,11 @@ class App extends Component {
                 handleClick={(e) => this.handleClick(e)}/>)}
                 exact path='/countries'
             />
+            <Route
+              render={() => (<CommentForm
+                handleClick={(e) => this.handleClick(e)}/>)}
+                exact path='/commentform'
+            />          
             <Route exact path='/createaccount'
             component={CreateAccount}/>
             <Route exact path='/login'

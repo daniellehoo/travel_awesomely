@@ -11,19 +11,19 @@ function getAllCommentsByCity(req, res, next) {
   });
 }
 
-function updateOneComment(req, res, next) {
-  travelDb.updateOneComment(req.body)
-  .then((data) => {
-  })
-  .catch(next);
-}
-
 function makeOneComment(req, res, next) {
   console.log('make comment controlller!!', req.body)
   travelDb.saveComment(req.body)
   .then((data) => {
     console.log('I am data:', data)
-  res.json(data);
+    res.json(data);
+  })
+  .catch(next);
+}
+
+function updateOneComment(req, res, next) {
+  travelDb.updateOneComment(req.body)
+  .then((data) => {
   })
   .catch(next);
 }
@@ -32,14 +32,14 @@ function deleteComment(req, res, next) {
   console.log('deleteComment controller!!!!!')
   travelDb.destroyComment(req.params.id)
   .then(() => {
-    // next();
+    next();
   })
   .catch(next);
 }
 
 module.exports = {
   getAllCommentsByCity,
-  updateOneComment,
   makeOneComment,
+  updateOneComment,
   deleteComment,
 }

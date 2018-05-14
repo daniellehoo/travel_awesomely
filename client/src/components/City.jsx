@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 import CommentList from './CommentList';
@@ -32,37 +33,6 @@ componentDidMount(){
     console.log(err))
 }
 
-delComment(e){
-    console.log('I am deleting from:', this.state.id)
-    fetch(`/comments/${this.state.id}`, {
-            method: 'DELETE'
-      })
-      .then(() => {this.getComments()})
-        e.preventDefault();
-       }
-
-// this handleChange is also in commentForm, should it all be in city page when we are done?
-handleChange(e) {
-    this.setState({comment: e.target.value,
-        city_id: this.state.city_id});
-      }
-
-  handleClick() {
-    console.log('this is props', this.props)
-  }
-
-  handleDelete() {
-
-  }
-
-  handleEdit() {
-
-  }
-
-  handleSubmit() {
-
-  }
-
   render(){
     console.log('statecity', this.state.name)
     console.log('statesnippet', this.state.snippet)
@@ -77,10 +47,13 @@ handleChange(e) {
         /> */}
             <CommentList
               cityId={this.props.match.params.id}
-              // comments={}
               onDelete={this.handleDelete}
               onEdit={this.handleEdit}
             />
+            <Link to={{
+              pathname: `/commentform`,
+              state: {}
+            }} onClick={()=>this.props.handleClick()}>Add New Comment</Link>
             <Footer />
           </div>
       )

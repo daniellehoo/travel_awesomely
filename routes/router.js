@@ -8,17 +8,15 @@ const commentController = require('../controllers/commentController');
 
 destinationRouter.route('/cities/:id')
     .get(cityController.getOneCity);
-      // .put(cityController.update)
-      // .delete(cityController.destroy);
 
 destinationRouter.route('/countries/:id')
     .get(countryController.getOneCountry)
 
 destinationRouter.route('/comments/:id')
     .get(commentController.getAllCommentsByCity)
-    // .delete(commentController.deleteComment)
-    // .post(commentController.makeOneComment)
-    // .put(commentController.updateOneComment)
+    .delete(commentController.deleteComment)
+    .post(commentController.makeOneComment)
+    .put(commentController.updateOneComment)
 
 destinationRouter.route('/countries')
     .get(countryController.indexCountries)
