@@ -21,15 +21,16 @@ function makeOneComment(req, res, next) {
 }
 
 function updateOneComment(req, res, next) {
+  console.log('@@@@@@@@hitting update comment controller')
+  console.log('req.body', req.body)
   travelDb.updateOneComment(req.body)
   .then((data) => {
+    res.json(data);
   })
   .catch(next);
 }
 
 function deleteComment(req, res, next) {
-  console.log('deleteComment controller!!!!!')
-  console.log('req.params.id', req.params.id)
   travelDb.destroyComment(req.params.id)
   .then(() => {
     res.json({delete: 'ok'})

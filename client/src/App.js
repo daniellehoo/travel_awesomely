@@ -57,21 +57,7 @@ class App extends Component {
       })
     }
 
-    // getComments(){
-    //   console.log('hitting getComments')
-    //   console.log('thispropscityid', this.props.city_id)
-    //   fetch('./comments/${this.props.city_id}')
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       this.setState({
-    //         commentList: data
-    //       })
-    //     })
-    //     .catch((err) => console.log(err))
-    // }
-
   render() {
-    console.log('inAppcountryidis:', this.state.countryid)
     return (
       <div className="App">
         <p className="App-intro">{this.state.response}</p>

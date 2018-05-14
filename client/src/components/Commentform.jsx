@@ -9,7 +9,6 @@ class CommentForm extends Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.getComments = this.getComments.bind(this)
     }
 
     handleChange(e) {
@@ -27,7 +26,7 @@ class CommentForm extends Component {
                 "city_id": this.state.city_id
             })
       })
-      .then(() => {this.props.getComments})
+      .then(() => {this.props.getComments()})
         // e.preventDefault();
        }
 
@@ -44,7 +43,6 @@ class CommentForm extends Component {
             </form>
         )
 
-        // this.props.location.state.id
     }
 }
 export default CommentForm;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
 import CommentList from './CommentList';

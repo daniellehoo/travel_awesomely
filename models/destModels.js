@@ -49,12 +49,14 @@ function findCommentsByCityId(id) {
     WHERE city_id = $1`, id);
 }
 
-function updateOneComment(id, data) {
+function updateOneComment(data) {
+  console.log('comment controller id and data', data)
   return db.one(`
     UPDATE comments
-    SET comment = $/comment/, city_id = $/city_id/
+    SET comment = $/comment/,
+    city_id = $/city_id/
     WHERE id = $/id/
-    RETURNING *`, id, data);
+    RETURNING *`, data);
 }
 
 function saveComment(data) {
