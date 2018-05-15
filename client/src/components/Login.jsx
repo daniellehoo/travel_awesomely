@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../partials/Nav';
 import Footer from '../partials/Footer';
+import {Link} from 'react-router-dom';
 
 class Login extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class Login extends Component {
 
                         <br />
 
-                    <input className = "button is-hovered is-warning" type="submit" value="Submit" />
+                    <button className="button is-warning" type="submit" value="Submit"><Link to='/countries'>Submit</Link></button>
 
                 </form>
             <Footer />
