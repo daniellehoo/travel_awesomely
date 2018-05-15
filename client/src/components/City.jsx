@@ -34,7 +34,6 @@ componentDidMount(){
       longitude: data.results[0].coordinates.longitude,
       image: data.results[0].images[3].sizes.original.url,
       city_db_image: data.img_url
-      // image: data.results[0].images[2].sizes.medium.url,
     })
   })
   .catch((err) =>
