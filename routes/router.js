@@ -1,15 +1,15 @@
 const destinationRouter = require('express').Router();
 
-const destinationController = require('../controllers/destinationController');
-const responseController = require('../controllers/responseController');
+const authController = require('../controllers/authController');
+const cityController = require('../controllers/cityController');
+const countryController = require('../controllers/countryController');
+const userController = require('../controllers/userController');
+const commentController = require('../controllers/commentController');
 
-// destinationRouter.route('/')
-//   .get(
-//     destinationController.getAll,
-//     responseController.sendOkResponse,
-//     responseController.sendErrorResponse
-//   );
+destinationRouter.route('/cities/:id')
+  .get(cityController.getOneCity);
 
+<<<<<<< HEAD
 // destinationRouter.route('/countries/:id')
 //   .get(
 //     destinationController.getOne,
@@ -66,5 +66,30 @@ const responseController = require('../controllers/responseController');
 //     responseController.sendOkResponse,
 //     responseController.sendErrorResponse
 //   );
+=======
+destinationRouter.route('/countries/:id')
+  .get(countryController.getOneCountry);
+
+destinationRouter.route('/comments/:id')
+  .get(commentController.getAllCommentsByCity)
+  .delete(commentController.deleteComment)
+  .post(commentController.makeOneComment)
+  .put(commentController.updateOneComment);
+
+destinationRouter.route('/countries')
+  .get(countryController.indexCountries);
+
+destinationRouter.route('/cities')
+  .get(cityController.indexCities);
+
+destinationRouter.route('/users/:id')
+  .get(userController.getOne);
+
+destinationRouter.route('/login')
+  .get(authController.login);
+
+destinationRouter.route('/register')
+  .get(authController.register)
+>>>>>>> dev
 
 module.exports = destinationRouter;

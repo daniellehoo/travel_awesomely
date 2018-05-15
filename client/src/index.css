@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "brusher";
+  src: url(fonts/Brusher.ttf);
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url(fonts/Quicksand-Regular.ttf);
+}
+
+
+html {
+  margin: 0;
+  padding: 0;
+  font-family: quicksand;
+  background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5)), url("./images/main.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+
+}
+
+
+.landing{
+  font-family: quicksand;
+  color: white;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 5%;
+}
+
+/* .button{
+  font-family: quicksand;
+} */
+
+.logo{
+  font-size: 90px;
+  font-family: brusher;
+}
+
+.login{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 200px;
+  color: white;
+  text-align: center;
+}
+
+.footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:10px;
+    width:100%;
+    font-family: quicksand;
+    background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5));
+    text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav{
+     position:fixed;
+    left:0px;
+    top:0px;
+    height:100px;
+    width:100%;
+    font-family: quicksand;
+    /* background-color: #00d1b2; */
+    background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.5));
+
+}
+
+.footer-logo{
+  font-family: brusher;
+  font-size: 50px;
+  color: white;
+}
+
+.box{
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
+  background-color:#00d1b2;
+  /* z-index: -1; */
+}
+
+
+.input {
+  border-style: none;
+  outline: none;
+}
+
+li{
+  list-style-type: none;
+  text-align: center;
+  margin: 10px;
+  display: inline;
+}
+
+h1, h2, h3, p, label {
+  color: white;
+}
+
+.subtitle{
+  color: white;
+}
+
+.title {
+  color: white;
+}
+
+.hrsmall {
+  width: 25%;
+  margin-left: 38%;
+}
+
+/* .notification{
+  z-index: -1;
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 15%;
+} */
+
