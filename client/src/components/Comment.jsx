@@ -12,6 +12,21 @@ class Comment extends Component {
     this.delComment = this.delComment.bind(this);
     this.edit = this.edit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getComments = this.getComments.bind(this);
+  }
+
+  getComments(){
+    console.log('hitting getComments')
+    fetch(`/comments/${this.props.commentId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          commentList: data,
+          commentId: this.props.commentId
+        })
+        console.log('hitting this')
+      })
+      .catch((err) => console.log(err))
   }
 
 delComment(e){
@@ -19,12 +34,13 @@ delComment(e){
   fetch(`/comments/${this.props.commentId}`, {
     method: 'DELETE'
   })
-  .then(() => {this.props.getComments})
-  // e.preventDefault();
-}
+  .then(() => this.setState({
+    fakeData: this.state.commentList
+  }))
+  .then(() => this.getComments()
+  )}
 
 edit(e){
-  // e.persist();
   e.preventDefault();
   console.log('edit is firing')
   console.log('this.state', this.state)
@@ -56,12 +72,12 @@ edit(e){
   render(){
     return(
         <div>
-            <span>
-              {/* <button onClick={() => this.edit(this.props.commentId)}>Edit</button> */}
+          <form onSubmit={(e) => this.delComment(this.props.commentId)}>
               <br />
-              <button onClick={() => this.delComment(this.props.commentId)}>Delete</button>
+              {/* <button onClick={(e) => this.delComment(this.props.commentId)}>Delete</button> */}
+              <input type="submit" value="delete" />
               <br />
-            </span>
+            </form>
 
             <form onSubmit={(e) => this.edit(e)}>
               <input type="text" value = {this.state.comment} placeholder={this.props.comment} onChange={(e) => this.handleChange(e)} />

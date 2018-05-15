@@ -78,7 +78,7 @@ Modules Used:
 -Bcrypt (secures passwords with hashing functionality)
 -dotenv (loads environmental variables)
 -React-DOM
--
+-jsonwebtoken
 
 ## Travel Application 2.0 Features and Fixes
 * TDB

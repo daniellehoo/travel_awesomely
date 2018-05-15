@@ -8,11 +8,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-//require body parser
+// require body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//require routes
+// require routes
 const destinationRouter = require('./routes/router');
 
 // application specific logging, throwing an error, or other logic here

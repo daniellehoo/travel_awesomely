@@ -21,8 +21,6 @@ function makeOneComment(req, res, next) {
 }
 
 function updateOneComment(req, res, next) {
-  console.log('@@@@@@@@hitting update comment controller')
-  console.log('req.body', req.body)
   travelDb.updateOneComment(req.body)
   .then((data) => {
     res.json(data);

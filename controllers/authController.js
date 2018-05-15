@@ -1,54 +1,64 @@
-const bcrypt = require('bcrypt');
-// const User   = require('../user/model/User');
-const TokenService = require('./TokenService');
+const tokenService = require('../services/tokenService.js');
+const userModel = require('../models/userModels.js');
 
-const isValidUser = async ({ username, password:textPassword }) => {
-  try {
-    // find the user by username
-    const user = await User.findOne(username);
-
-    // compare the cleartext password and the pwd from the db
-    // using bcrypt
-    return await bcrypt.compare(textPassword, user.password);
-  } catch (err) {
-    console.error(err);
-    return false;
+// - `receiveToken` - middleware takes the token from the `Authorization` header if present and puts it on the request
+function receiveToken(req, res, next) {
+  if (req.headers.authorization) {
+    req.authToken = req.headers.authorization.replace(/^Bearer\s/, '');
   }
+  next();
 };
+
+// - `restrict` - middleware that uses `tokenService.verify` to check the token. If the token is valid, the user is permitted to access subsequent middleware. Otherwise, the user gets a 401 response
+function restrict(req, res, next) {
+  tokenService.verify(req.authToken)
+    .then(data => {
+      res.locals.user = data;
+      next();
+    })
+    .catch(err => res.status(401).json({
+      status: 'Error',
+      message: 'Invalid credentials'
+    }))
+}
+
+// - `register` - route handler that will create a new user using the User model and then creates a JWT for that user and sends it in response.
+function register(req, res) {
+  userModel.register(req.body)
+    .catch(err => res.status(401).json({
+      message: 'Username taken'
+    }))
+    .then(data => tokenService.makeToken({
+        email: data.email,
+        id: data.id
+    }))
+    .then(token => {
+      res.json({
+        token
+      })
+    });
+}
+
+function login(req, res, next) {
+  userModel.login(req.body)
+    .catch(err => res.status(401).json({
+      status: 'Error',
+      message: 'Invalid credentails'
+    }))
+    .then(data => tokenService.makeToken({
+      id: data.id,
+      email: data.email
+    }))
+    .then(token => {
+      res.json({
+        token
+      })
+    })
+}
 
 module.exports = {
-  authenticate(req, res, next) {
-    if (!isValidUser(req.body)) {
-      return next({});
-    }
-
-    TokenService.makeToken({
-      username: req.body.username,
-      roles:    ['user'],
-    })
-      .then((token) => {
-        res.locals.token = token;
-        next();
-      })
-      .catch(next);
-    return false;
-  },
-
-  allow({ roles }) {
-    /* todo: check the user's roles */
-    return [
-      (req, res, next) => {
-        TokenService.verify(req.authToken)
-          .then((payload) => {
-            const isAuthorized = roles.some(n => payload.roles.includes(n));
-            return isAuthorized ? next() : Promise.reject('User not authorized');
-          })
-          .catch(next);
-      },
-      (err, req, res, next) => {
-        console.log(err);
-        res.status(403).json({});
-      },
-    ];
-  },
-};
+  receiveToken,
+  register,
+  restrict,
+  login
+}
