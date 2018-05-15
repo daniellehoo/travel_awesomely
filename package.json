@@ -6,14 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-<<<<<<< HEAD
-    "dev": "nodemon server.js",
-    "debug": "node --inspect server.js",
-    "heroku-postbuild": "npm install --production"
-  },
-  "keywords": [],
-  "author": "David Clelland, Danielle Hoo, Hugh Thornhill",
-=======
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "debug": "node --inspect server.js",
     "heroku-postbuild": "npm install --production",
@@ -22,7 +14,6 @@
   },
   "keywords": [],
   "author": "",
->>>>>>> dev
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^2.0.0",
@@ -33,10 +24,7 @@
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-<<<<<<< HEAD
-=======
     "jsonwebtoken": "^8.2.1",
->>>>>>> dev
     "morgan": "^1.9.0",
     "node-fetch": "^2.1.2",
     "path": "^0.12.7",
@@ -46,10 +34,7 @@
     "traverson-hal": "^6.0.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
-=======
     "concurrently": "^3.5.0",
->>>>>>> dev
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
     "method-override": "^2.3.10",

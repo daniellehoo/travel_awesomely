@@ -3,10 +3,6 @@ const express    = require('express');
 const logger     = require('morgan');
 const path       = require('path');
 const bodyParser = require('body-parser');
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 
 // start express
 const app = express();
@@ -24,24 +20,14 @@ process.on('unhandledRejection', (reason, p) => {
   console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
 });
 
-//require routes
-const destinationRouter = require('./routes/router');
-
-
 // some logging
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTE HANDLER
-<<<<<<< HEAD
 app.use(logger('dev'));
 
-app.use('/', (req, res) => {
-  res.json({ message: 'hello from /' });
-});
-=======
 app.use('/', destinationRouter);
->>>>>>> dev
 
 // GLOBAL ERROR HANDLER
 app.use((err, req, res, next) => {
