@@ -23,7 +23,6 @@ componentDidMount(){
   fetch(`/cities/${this.props.match.params.id}`)
   .then((res) => res.json())
   .then((data) => {
-    console.log('image', data.results[0].images[2].sizes.medium.url)
     this.setState({
       cityData: data,
       cityDataReceived: true,
