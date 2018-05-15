@@ -57,7 +57,7 @@ cities(country_id){
     if (this.state.countriesListDataReceived) {
       return this.state.countriesListData.map((country, i) => {
         return (
-          <div key={country.id}>
+          <div className="title is-5 box" key={country.id}>
             <Link to={{
               pathname: `/countries/${country.id}`,
               state: {
@@ -75,8 +75,8 @@ cities(country_id){
         return(
             <div className="landing">
              <Nav />
-                 <h1>Countries</h1>
-                 <h3>Hi {this.props.username}, choose a country</h3>
+                 <h1 className="title is-1">Countries</h1>
+                 <h3 className="title is-4">Hi {this.props.username}, choose a country</h3>
                    {this.renderCountryList()}
              </div>
          )

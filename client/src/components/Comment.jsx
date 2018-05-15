@@ -29,8 +29,7 @@ class Comment extends Component {
       .catch((err) => console.log(err))
   }
 
-delComment(e){
-  e.preventDefault();
+delComment(){
   fetch(`/comments/${this.props.commentId}`, {
     method: 'DELETE'
   })
@@ -41,7 +40,6 @@ delComment(e){
 }
 
 edit(e){
-  e.preventDefault();
   console.log('edit is firing')
   console.log('this.state', this.state)
   console.log('this.props.commentId', this.props.commentId)
@@ -72,7 +70,7 @@ edit(e){
 
   render(){
     return(
-        <div>
+        <div className="title is-3">
           <form onSubmit={(e) => this.delComment(e)}>
               <br />
               <input className="button is-danger" type="submit" value="delete" />

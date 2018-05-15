@@ -85,8 +85,9 @@ a {
   position: relative;
   width: 50%;
   margin-left: 25%;
-  margin-top: 15%;
+  margin-top: 10%;
   background-color:#00d1b2;
+  /* z-index: -1; */
 }
 
 
@@ -126,3 +127,4 @@ h1, h2, h3, p, label {
   margin-left: 25%;
   margin-top: 15%;
 } */
+

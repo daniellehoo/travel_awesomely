@@ -34,7 +34,7 @@ renderCityList() {
   if (this.state.citiesListDataReceived) {
     return this.state.citiesListData.map((city) => {
       return (
-        <div key={city.id}>
+        <div className="box title is-6" key={city.id}>
         <Link to={{
           pathname: `/cities/${city.id}`,
           state: {cityId: city.id}
@@ -47,7 +47,7 @@ renderCityList() {
 render(props){
     return(
         <div className="landing">
-            <h1>Cities</h1>
+            <h1 className="title is-1">Cities</h1>
               {this.renderCityList()}
         </div>
     )

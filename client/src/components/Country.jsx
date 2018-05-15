@@ -53,7 +53,7 @@ class Country extends Component {
         return(
             <div>
               <Nav />
-              <div className="box">
+              <div className="country box">
                 <img src={this.state.image}/>
                 <CityList
                   countryId={this.props.countryId}

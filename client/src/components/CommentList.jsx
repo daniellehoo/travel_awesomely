@@ -47,7 +47,7 @@ componentWillMount(){
       return this.state.commentList.map((comment, i) => {
         console.log('comment', comment)
         return (
-          <div key={i}>
+          <div className="title is-4" key={i}>
             <h2>{comment.comment}</h2>
             <Comment
               cityId={this.props.cityId}

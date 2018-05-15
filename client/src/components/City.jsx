@@ -66,7 +66,6 @@ getComments(){
 
       return(
           <div>
-            {/* <Nav /> */}
             <div className="box">
             <Nav />
               <h1 className = "title is-1">{this.state.name}</h1>
