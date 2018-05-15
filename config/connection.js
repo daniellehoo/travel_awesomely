@@ -9,6 +9,6 @@ const config = {
   database: 'travel_db',
 };
 const db = pg(process.env.DATABASE_URL || config);
-const db = pg(config);
+// const db = pg(config);
 module.exports = db;
 // for heroku deployment: uncomment first line and comment line 9
