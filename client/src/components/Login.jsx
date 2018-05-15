@@ -11,27 +11,32 @@ class Login extends Component {
       }
     render(){
         return(
-            <div className="login">
+          <div className="login">
             <Nav />
-            <form>
-                <label>
-                    Username
+                <form className = "notification">
                     <br/>
-            <input type="text" name="name" />
-                </label>
-                <br />
-                <br />
-                <label>
-                    Password
-                    <br/>
-            <input type="password" name="password" />
-                </label>
-                <br />
-                <br />
-            <input type="submit" value="Submit" />
-            </form>
+
+                        <div className="control has-icons-left">
+                            <input className="input" type="text" placeholder="Username" />
+                                <span className="icon is-small is-left">
+                                    <i className="fas fa-user"></i>
+                                </span>
+                        </div>
+                            <br/>
+                        <p className="control has-icons-left">
+                            <input className="input" type="password" placeholder="Password" />
+                                <span className="icon is-small is-left">
+                                    <i className="fas fa-lock"></i>
+                                </span>
+                        </p>
+
+                        <br />
+
+                    <input className = "button is-primary" type="submit" value="Submit" />
+
+                </form>
             <Footer />
-            </div>
+          </div>
         )
     }
 }

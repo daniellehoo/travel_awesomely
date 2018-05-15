@@ -5,35 +5,35 @@ module.exports = {
 
   getOne(req, res, next) {
     destModels.getOneUser(req.params.id)
-      .then(data => {
+      .then((data) => {
         res.locals.user = data;
-          next();
-          })
-      .catch(err => {
+        next();
+      })
+      .catch((err) => {
         next(err);
       });
   },
 
-// Produces the form to create a new user and hashes the password
+  // Produces the form to create a new user and hashes the password
   async new(req, res, next) {
     req.body.hashword = await bcrypt.hash(req.body.password, 5);
     destModels.createUser(req.body)
       .then(() => {
         next();
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         res.status(500).json({ error: err });
-    });
+      });
   },
 
   create(req, res, next) {
     destModels.createUser(userData)
-      .then(data => {
+      .then((data) => {
         res.locals.user = data;
         next();
       })
-      .catch(err => {
+      .catch((err) => {
         next(err);
       });
   },
@@ -43,7 +43,7 @@ module.exports = {
       .then(() => {
         res.redirect('/');
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({
           message: err.message,
         });

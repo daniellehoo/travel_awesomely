@@ -30,18 +30,18 @@ class Comment extends Component {
   }
 
 delComment(e){
-  console.log('delcomment', this.props.commentId)
+  e.preventDefault();
   fetch(`/comments/${this.props.commentId}`, {
     method: 'DELETE'
   })
   .then(() => this.setState({
     fakeData: this.state.commentList
   }))
-  .then(() => this.getComments()
-  )}
+  .then(() => this.getComments())
+}
 
 edit(e){
-  // e.preventDefault();
+  e.preventDefault();
   console.log('edit is firing')
   console.log('this.state', this.state)
   console.log('this.props.commentId', this.props.commentId)
@@ -73,15 +73,14 @@ edit(e){
   render(){
     return(
         <div>
-          <form onSubmit={(e) => this.delComment(this.props.commentId)}>
+          <form onSubmit={(e) => this.delComment(e)}>
               <br />
-              {/* <button onClick={(e) => this.delComment(this.props.commentId)}>Delete</button> */}
               <input type="submit" value="delete" />
               <br />
             </form>
 
             <form onSubmit={(e) => this.edit(e)}>
-              <input type="text" value = {this.state.comment} placeholder={this.props.comment} onChange={(e) => this.handleChange(e)} />
+              <input className="input" type="text" value = {this.state.comment} placeholder={this.props.comment} onChange={(e) => this.handleChange(e)} />
               <br/>
               <input type="submit" value="update" />
             </form>

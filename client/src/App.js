@@ -27,6 +27,19 @@ class App extends Component {
     this.grabCityId = this.grabCityId.bind(this);
 }
 
+componentDidMount(){
+  fetch('/countries')
+  .then((res) => res.json())
+  .then((data) => {
+    console.log('app data', data)
+    this.setState({
+      country_db_image: data.img_url
+    })
+  })
+  .catch((err) =>
+    console.log(err))
+}
+
   grabId(id) {
     this.setState({
       countryid: id
@@ -68,6 +81,7 @@ class App extends Component {
                 countryId={this.state.countryid}
                 grabCityId={this.grabCityId}
                 cityId={this.state.cityid}
+                country_db_image={this.state.country_db_image}
                 handleClick={(e) => this.handleClick(e)}
               />)}
                 exact path='/countries/:id'

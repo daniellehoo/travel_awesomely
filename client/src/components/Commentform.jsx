@@ -36,10 +36,10 @@ class CommentForm extends Component {
             <label>
             Add New Comment
             <br/>
-            <input type="text" value={this.state.comment} onChange={this.handleChange} />
+            <input className="input" type="text" value={this.state.comment} onChange={this.handleChange} />
             </label>
             <br/>
-            <input type="submit" value="submit" />
+            <input className="tag is-success" type="submit" value="submit" />
             </form>
         )
 

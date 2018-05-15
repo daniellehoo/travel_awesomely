@@ -7,21 +7,20 @@ module.exports = {
         payload,
         process.env.SERVER_SECRET,
         {
-        expiresIn: '1h',
+          expiresIn: '1h',
           issuer:    'dresselhaus',
         },
-        (err, data) => err ? reject(err) : resolve(data),
-      ),
-    );
+        (err, data) => (err ? reject(err) : resolve(data)),
+      ));
   },
 
   verify(token) {
     return new Promise((resolve, reject) =>
-      jwt.verify(token,
+      jwt.verify(
+        token,
         process.env.SERVER_SECRET,
-        (err, data) => err ? reject(err) : resolve(data),
-      ),
-    );
+        (err, data) => (err ? reject(err) : resolve(data)),
+      ));
   },
 
   receiveToken(req, res, next) {

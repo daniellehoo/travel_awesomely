@@ -32,50 +32,57 @@ class CreateAccount extends Component {
 
     handleSubmit(e, city_id){
     fetch(``, {
-            method: 'POST' 
+            method: 'POST'
       })
       .then(() => {this.getCountries()})
         e.preventDefault();
        }
 
 
-      render(){
-          return(
-      <div className="login">
-          <Nav />
-          <form onSubmit={this.handleSubmit}>
-          <h1>Sign Up</h1>
-          <p>Please fill in this form to create an account.</p>
-              <label>Name
-              <br/>
-                  <input type="text" value={this.state.name} onChange={this.handleChange} name="name" />
-              </label>
-          <br />
-          <br />
-              <label>Username
-              <br/>
-                  <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
-              </label>
-          <br />
-          <br />
-              <label>Password
-              <br/>
-                  <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
-              </label>
-          <br />
-          <br />
-              <label>Email
-              <br/>
-                  <input type="email" value={this.state.emailt} onChange={this.handleChange} name="email" />
-              </label>
-          <br />
-          <br />
-              <input type="submit" value="Submit" />
-          </form>
-              <Footer />
-              </div>
-          )
-      }
-}
+       render(){
+           return(
+             <div className = "notification">
+                 <Nav />
+                     <form onSubmit={this.handleSubmit}>
+                         <h1 className="title is-2">Sign Up</h1>
+                             <p className="title is-3">Please fill in this form to create an account.</p>
+
+                                 <p className="control has-icons-left">
+                                     <input className="input" type="text" value={this.state.emailt} onChange={this.handleChange} placeholder="name" />
+                                         <span className="icon is-small is-left">
+                                         <i className="fas fa-arrow-alt-circle-right"></i>
+                                     </span>
+                                 </p>
+                                 <br/>
+
+                                 <p className="control has-icons-left">
+                                     <input className="input" type="text" value={this.state.emailt} onChange={this.handleChange} placeholder="username" />
+                                         <span className="icon is-small is-left">
+                                         <i className="fas fa-user"></i>
+                                     </span>
+                                 </p>
+                                 <br/>
+                                 <p className="control has-icons-left">
+                                     <input className="input" type="password" value={this.state.emailt} onChange={this.handleChange} placeholder="password" />
+                                         <span className="icon is-small is-left">
+                                         <i className="fas fa-lock"></i>
+                                     </span>
+                                 </p>
+                                <br/>
+                                 <p className="control has-icons-left">
+                                     <input className="input" type="email" value={this.state.emailt} onChange={this.handleChange} placeholder="email" />
+                                         <span className="icon is-small is-left">
+                                         <i className="fas fa-envelope"></i>
+                                     </span>
+                                 </p>
+                                 <br/>
+                                 <input className = "button is-primary" type="submit" value="Submit" />
+
+                     </form>
+                 <Footer />
+             </div>
+                       )
+                   }
+             }
 
 export default CreateAccount;

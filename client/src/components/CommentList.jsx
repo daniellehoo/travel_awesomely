@@ -64,7 +64,7 @@ componentWillMount(){
   render(){
       return(
           <div className="commentList">
-            <h2>Comment List</h2>
+            <h2 className="title">User Comments</h2>
             {this.renderCommentList()}
           </div>
       )

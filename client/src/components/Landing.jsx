@@ -21,17 +21,17 @@ class Landing extends Component {
     render(){
         return(
 
-            <div className="landing">
-                <h1 className="logo">Travel Awesomely</h1>
-                <h3> an intuitive travel app for the modern traveler</h3>
-                <br />
-                <button className="button"><Link to='/login'>Log In</Link></button>
-                <br />
-                <br />
-                <button className="button"><Link to='/createaccount'>Create an account</Link></button>
-                <br/>
-                <Footer />
-                </div>
+          <div className="landing">
+              <h1 className="logo">Travel Awesomely</h1>
+              <h3 className = "title is-3"> an intuitive travel app for the modern traveler</h3>
+              <br />
+              <button className="button is-primary"><Link to='/login'>Log In</Link></button>
+              <br />
+              <br />
+              <button className="button is-primary"><Link to='/createaccount'>Create an account</Link></button>
+              <br/>
+              <Footer />
+          </div>
             )
     }
 }

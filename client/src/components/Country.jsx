@@ -20,11 +20,11 @@ class Country extends Component {
   }
 
     componentWillMount(){
+      console.log('this.props is', this.props)
       console.log('react stateid: ', this.props.countryId);
       fetch(`/countries/${this.props.countryId}`)
       .then((res) => res.json())
       .then((data) => {
-
         console.log('this is what were after', data)
         this.setState({
           citiesListData: data,
@@ -52,17 +52,18 @@ class Country extends Component {
       console.log('thisiscountry', this.props.countryId)
         return(
             <div>
-            <Nav />
-            <div className="country">
-            <CityList
-              countryId={this.props.countryId}
-              cityId={this.state.city_id}
-              citiesListData= {this.state.citiesListData}
-              grabCityId={this.grabCityId}
-              handleClick={(e) => this.grabCityId(this.props.id)}
-            />
-            </div>
-            <Footer />
+              <Nav />
+              <div className="column is-four-fifths">
+                <img src={this.state.image}/>
+                <CityList
+                  countryId={this.props.countryId}
+                  cityId={this.state.city_id}
+                  citiesListData= {this.state.citiesListData}
+                  grabCityId={this.grabCityId}
+                  handleClick={(e) => this.grabCityId(this.props.id)}
+                />
+              </div>
+              <Footer />
             </div>
         )
     }

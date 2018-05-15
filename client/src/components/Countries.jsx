@@ -9,8 +9,9 @@ class Countries extends Component {
     this.state = {
       countriesListData: [],
       countriesDataReceived: false,
+      country_db_image: '',
       country: '',
-      theCountryId: '',
+      id: '',
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -23,6 +24,7 @@ class Countries extends Component {
       this.setState({
         countriesListData: data,
         countriesListDataReceived: true,
+        country_db_image: data.img_url,
         country: data.name,
         id: data.id
       })
@@ -58,7 +60,10 @@ cities(country_id){
           <div key={country.id}>
             <Link to={{
               pathname: `/countries/${country.id}`,
-              state: {country_id: country.id}
+              state: {
+                country_id: country.id,
+                country_db_image: country.img_url,
+              }
             }} onClick={()=>this.props.grabId(country.id)}>{country.name}</Link>
           </div>
         )
