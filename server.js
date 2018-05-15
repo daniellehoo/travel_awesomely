@@ -22,7 +22,7 @@ process.on('unhandledRejection', (reason, p) => {
 
 // some logging
 app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/', destinationRouter);
 
