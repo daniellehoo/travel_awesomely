@@ -66,8 +66,9 @@ getComments(){
 
       return(
           <div>
+            {/* <Nav /> */}
+            <div className="box">
             <Nav />
-            <div className="notification is-info">
               <h1 className = "title is-1">{this.state.name}</h1>
               <hr className="hrsmall" />
               <h2 className="title is-3">{this.state.snippet}</h2>
@@ -86,7 +87,6 @@ getComments(){
               cityId={this.props.match.params.id}
               handleClick={this.handleClick}
               />
-              <Footer />
             </div>
           </div>
       )

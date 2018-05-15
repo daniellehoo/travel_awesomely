@@ -8,6 +8,7 @@ import Countries from './components/Countries';
 import Country from './components/Country';
 import City from './components/City';
 import CommentForm from './components/CommentForm';
+import Footer from './partials/Footer';
 
 class App extends Component {
   constructor(props) {

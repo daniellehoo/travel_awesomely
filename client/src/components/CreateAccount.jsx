@@ -41,7 +41,7 @@ class CreateAccount extends Component {
 
        render(){
            return(
-             <div className = "notification">
+             <div className = "box">
                  <Nav />
                      <form onSubmit={this.handleSubmit}>
                          <h1 className="title is-2">Sign Up</h1>
@@ -76,7 +76,7 @@ class CreateAccount extends Component {
                                      </span>
                                  </p>
                                  <br/>
-                                 <input className = "button is-primary" type="submit" value="Submit" />
+                                 <input className = "button is-hovered is-warning" type="submit" value="Submit" />
 
                      </form>
                  <Footer />

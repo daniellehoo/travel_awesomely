@@ -75,14 +75,14 @@ edit(e){
         <div>
           <form onSubmit={(e) => this.delComment(e)}>
               <br />
-              <input type="submit" value="delete" />
+              <input className="button is-danger" type="submit" value="delete" />
               <br />
             </form>
 
             <form onSubmit={(e) => this.edit(e)}>
               <input className="input" type="text" value = {this.state.comment} placeholder={this.props.comment} onChange={(e) => this.handleChange(e)} />
               <br/>
-              <input type="submit" value="update" />
+              <input className="button is-warning" type="submit" value="update" />
             </form>
         </div>
     )

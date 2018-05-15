@@ -78,7 +78,6 @@ cities(country_id){
                  <h1>Countries</h1>
                  <h3>Hi {this.props.username}, choose a country</h3>
                    {this.renderCountryList()}
-             <Footer />
              </div>
          )
      }

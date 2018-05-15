@@ -13,7 +13,7 @@ class Login extends Component {
         return(
           <div className="login">
             <Nav />
-                <form className = "notification">
+                <form className="box">
                     <br/>
 
                         <div className="control has-icons-left">
@@ -24,7 +24,7 @@ class Login extends Component {
                         </div>
                             <br/>
                         <p className="control has-icons-left">
-                            <input className="input" type="password" placeholder="Password" />
+                            <input className="input control has-icons-left" type="password" placeholder="Password" />
                                 <span className="icon is-small is-left">
                                     <i className="fas fa-lock"></i>
                                 </span>
@@ -32,7 +32,7 @@ class Login extends Component {
 
                         <br />
 
-                    <input className = "button is-primary" type="submit" value="Submit" />
+                    <input className = "button is-hovered is-warning" type="submit" value="Submit" />
 
                 </form>
             <Footer />

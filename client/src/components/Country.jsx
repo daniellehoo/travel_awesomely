@@ -53,7 +53,7 @@ class Country extends Component {
         return(
             <div>
               <Nav />
-              <div className="column is-four-fifths">
+              <div className="box">
                 <img src={this.state.image}/>
                 <CityList
                   countryId={this.props.countryId}
@@ -63,7 +63,6 @@ class Country extends Component {
                   handleClick={(e) => this.grabCityId(this.props.id)}
                 />
               </div>
-              <Footer />
             </div>
         )
     }
