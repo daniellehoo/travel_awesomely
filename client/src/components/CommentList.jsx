@@ -30,6 +30,18 @@ componentWillMount(){
     console.log(err))
 }
 
+// getComments(){
+//   fetch(`/comments/${this.state.id}`)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       this.setState({
+//         commentList: data,
+//         commentId: data.id
+//       })
+//     })
+//     .catch((err) => console.log(err))
+// }
+
   renderCommentList() {
     if (this.state.commentDataReceived) {
       return this.state.commentList.map((comment, i) => {

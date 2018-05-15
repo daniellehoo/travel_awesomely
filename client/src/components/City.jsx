@@ -42,7 +42,7 @@ componentDidMount(){
 }
 
 getComments(){
-  fetch(`./comments/${this.state.id}`)
+  fetch(`/comments/${this.state.id}`)
     .then((res) => res.json())
     .then((data) => {
       this.setState({
@@ -52,7 +52,6 @@ getComments(){
     })
     .catch((err) => console.log(err))
 }
-
 
     handleClick(e) {
       e.preventDefault();

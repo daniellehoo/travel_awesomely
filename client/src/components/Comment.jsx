@@ -41,7 +41,7 @@ delComment(e){
   )}
 
 edit(e){
-  e.preventDefault();
+  // e.preventDefault();
   console.log('edit is firing')
   console.log('this.state', this.state)
   console.log('this.props.commentId', this.props.commentId)
@@ -50,18 +50,19 @@ edit(e){
     headers: {'Content-Type': 'application/json'},
      body: JSON.stringify({
        'id': this.props.commentId,
-       'comment': this.props.comment,
+       'comment': this.state.comment,
        'city_id': this.props.cityId,
      })
    })
   .then(() => this.setState({
     value: e
   }))
-  .then(() => {this.props.getComments}
+  .then(() => this.getComments()
 )}
 
   handleChange(e) {
     console.log('hitting handleChange')
+    console.log('e.target.value', e.target.value)
     this.setState({
       'id': this.props.commentId,
       'comment': e.target.value,
