@@ -57,7 +57,7 @@ VALUES
 (1, 'Venice', ''),
 (2, 'London', 'https://cdn.londonandpartners.com/-/media/images/london/visit/london-organisations/tower-bridge-exhibition/tower-bridge-homepage-image.jpg?mw=1920&hash=E19E0136A57855A8ED61B4E66EA72F1646CA8DAC'),
 (2, 'Glasgow', ''),
-(2, 'Dublin', ''),
+(2, 'Edinburgh', ''),
 (3, 'Cape Town', 'https://www.thesouthafrican.com/wp-content/uploads/2016/02/cape-town-1.jpg'),
 (3, 'Johannesburg', ''),
 (4, 'Honolulu', 'https://a1.r9cdn.net/rimg/dimg/73/93/010fa630-city-28070-15b0fe71be2.jpg?crop=true&width=1000&height=600&xhint=1948&yhint=1284'),
